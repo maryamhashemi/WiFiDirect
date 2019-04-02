@@ -4,14 +4,21 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
+import android.net.wifi.p2p.WifiP2pDevice;
+import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
 
     BroadcastReceiver Receiver;
     IntentFilter intentFilter;
+
+    List<WifiP2pDevice> peers = new ArrayList<WifiP2pDevice>();
+
+    // Use this array to show Device name in ListView
+    String[] DeviceNameArray;
+
+    // Use this array to connect to device
+    WifiP2pDevice[] deviceArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +85,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        btnDiscover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
+                    @Override
+                    public void onSuccess() {
+                        //Discovery Started successfully
+                        ConnenctionStatus.setText("Discovery Started");
+                    }
+
+                    @Override
+                    public void onFailure(int reason)
+                    {
+                        //Discovery not started
+                        ConnenctionStatus.setText("Discovery Starting failed");
+
+                    }
+                });
+            }
+        });
     }
 
     private void Initialize()
@@ -111,4 +147,38 @@ public class MainActivity extends AppCompatActivity {
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
     }
+
+    WifiP2pManager.PeerListListener peerListListener = new WifiP2pManager.PeerListListener() {
+        @Override
+        public void onPeersAvailable(WifiP2pDeviceList peerList) {
+            // Check Wether the available peers change or not
+            if(!peerList.getDeviceList().equals(peers))
+            {
+                peers.clear();
+                peers.addAll(peerList.getDeviceList());
+
+                DeviceNameArray = new String[peerList.getDeviceList().size()];
+                deviceArray = new WifiP2pDevice[peerList.getDeviceList().size()];
+
+                int index = 0;
+
+                for(WifiP2pDevice device : peerList.getDeviceList())
+                {
+                    DeviceNameArray[index] = device.deviceName;
+                    deviceArray[index] = device;
+                    index++;
+                }
+
+                ArrayAdapter<String> adapter =
+                        new ArrayAdapter<String>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,DeviceNameArray);
+                listView.setAdapter(adapter);
+            }
+
+            if(peers.size() == 0)
+            {
+                Toast.makeText(getApplicationContext(),"No Device Found", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+    };
 }
