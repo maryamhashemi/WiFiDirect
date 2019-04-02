@@ -1,7 +1,10 @@
 package wifidirect.wifidirect;
 
+import android.content.Context;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -14,11 +17,36 @@ public class MainActivity extends AppCompatActivity {
     TextView read_msg_box, ConnenctionStatus;
     EditText writeMsg;
 
+    WifiManager wifiManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Initialize();
+        Listener();
+    }
+
+    private void Listener()
+    {
+        btnonoff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Check current Status of WiFi
+//                if WiFi is on, set it off. Otherwise set it on.
+                if (wifiManager.isWifiEnabled())
+                {
+                    wifiManager.setWifiEnabled(false);
+                    btnonoff.setText("on");
+                }
+                else
+                {
+                    wifiManager.setWifiEnabled(true);
+                    btnonoff.setText("off");
+                }
+
+            }
+        });
     }
 
     private void Initialize()
@@ -43,5 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        EditText to write meassage
         writeMsg = (EditText)findViewById(R.id.writeMsg);
+
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     }
 }
