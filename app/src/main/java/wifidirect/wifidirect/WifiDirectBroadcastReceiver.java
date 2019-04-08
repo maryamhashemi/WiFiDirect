@@ -1,12 +1,18 @@
 package wifidirect.wifidirect;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.NetworkInfo;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.os.Build;
 import android.widget.Toast;
 
+/*
+ * A BroadcastReceiver that notifies of important Wi-Fi p2p events.
+ */
 public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
 
     private WifiP2pManager manager;
@@ -17,6 +23,7 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
                                        WifiP2pManager.Channel channel,
                                        MainActivity mainActivity)
     {
+        super();
         this.manager = manager;
         this.channel = channel;
         this.mainActivity = mainActivity;
@@ -44,6 +51,9 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
         else if(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action))
         {
             // Call WifiP2pManager.requestPeers() to get a list of current peers
+            // request available peers from the wifi p2p manager. This is an
+            // asynchronous call and the calling activity is notified with a
+            // callback on PeerListListener.onPeersAvailable()
             if(manager != null)
             {
                 manager.requestPeers(channel,mainActivity.peerListListener);
@@ -71,6 +81,5 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
         {
             // Respond to this Device's Wifi state changing
         }
-
     }
 }
