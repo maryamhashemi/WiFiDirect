@@ -295,7 +295,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void run() {
-
             try {
                 serverSocket = new ServerSocket(8888);
                 socket = serverSocket.accept();
@@ -320,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
 
             try {
-                socket.connect(new InetSocketAddress(HostAddress, 8888));
+                socket.connect(new InetSocketAddress(HostAddress, 8888),500);
                 sendReceive = new SendReceive(socket);
                 sendReceive.start();
             } catch (IOException e) {
@@ -366,7 +365,7 @@ public class MainActivity extends AppCompatActivity {
 
             while (socket != null) {
                 try {
-                    bytes = inputStream.read();
+                    bytes = inputStream.read(buffer);
                     if (bytes > 0) {
                         handler.obtainMessage(MESSAGE_READ, bytes, -1, buffer).sendToTarget();
                     }
