@@ -19,10 +19,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,9 +39,13 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Button btnonoff, btnDiscover, btnSend;
+    ToggleButton btnPrivateGroup;
     ListView listView;
-    TextView read_msg_box, ConnectionStatus;
+    static TextView read_msg_box;
+    TextView ConnectionStatus;
     EditText writeMsg;
+
+    boolean isGroup = false ;
 
     WifiManager wifiManager;
 
@@ -61,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     Server server;
     Client client;
-    SendReceive sendReceive;
+    static SendReceive sendReceive;
 
     static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
 
@@ -167,25 +173,67 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Change the mode to application
+        // there is two mode:
+        // 1. Private mode: Send and recieve messages between two people
+        // 2. Group mode: Send and recieve messages between more than two peoples
+        btnPrivateGroup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                {
+                    Toast.makeText(getApplicationContext(),"Group mode",Toast.LENGTH_SHORT).show();
+                    btnPrivateGroup.setTextOn("Group mode");
+                    isGroup = true;
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Privatie mode",Toast.LENGTH_SHORT).show();
+                    btnPrivateGroup.setTextOff("Private mode");
+                    isGroup = false;
+                }
+            }
+        });
+
         // Connect to peer
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
-                final WifiP2pDevice device = deviceArray[i];
-                WifiP2pConfig config = new WifiP2pConfig();
-                config.deviceAddress = device.deviceAddress;
 
-                manager.connect(channel, config, new WifiP2pManager.ActionListener() {
-                    @Override
-                    public void onSuccess() {
-                        Toast.makeText(getApplicationContext(), "Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
-                    }
+                if(!isGroup)
+                {
+                    final WifiP2pDevice device = deviceArray[i];
+                    WifiP2pConfig config = new WifiP2pConfig();
+                    config.deviceAddress = device.deviceAddress;
 
-                    @Override
-                    public void onFailure(int reason) {
-                        Toast.makeText(getApplicationContext(), " Not Connected to ", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    manager.connect(channel, config, new WifiP2pManager.ActionListener() {
+                        @Override
+                        public void onSuccess() {
+                            Toast.makeText(getApplicationContext(), "Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(int reason) {
+                            Toast.makeText(getApplicationContext(), " Not Connected to ", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else
+                {
+                    manager.createGroup(channel, new WifiP2pManager.ActionListener() {
+                        @Override
+                        public void onSuccess() {
+                            Toast.makeText(getApplicationContext(),"Group is created successfully",Toast.LENGTH_SHORT);
+                        }
+
+                        @Override
+                        public void onFailure(int reason) {
+                            Toast.makeText(getApplicationContext(),"Create Group is failed",Toast.LENGTH_SHORT);
+                        }
+                    });
+
+                }
+
 
             }
         });
@@ -210,6 +258,9 @@ public class MainActivity extends AppCompatActivity {
 
 //        Button to send message
         btnSend = (Button) findViewById(R.id.sendButton);
+
+//        Button to change private mode and group mode
+        btnPrivateGroup = findViewById(R.id.privateGroupbtn);
 
 //        listView to Show all available peers
         listView = (ListView) findViewById(R.id.peerListView);
@@ -289,46 +340,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    public class Server extends Thread {
-        Socket socket;
-        ServerSocket serverSocket;
-
-        @Override
-        public void run() {
-            try {
-                serverSocket = new ServerSocket(8888);
-                socket = serverSocket.accept();
-                sendReceive = new SendReceive(socket);
-                sendReceive.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public class Client extends Thread {
-        Socket socket;
-        String HostAddress;
-
-        public Client(InetAddress HostAddr) {
-            HostAddress = HostAddr.getHostAddress();
-            socket = new Socket();
-        }
-
-        @Override
-        public void run() {
-
-            try {
-                socket.connect(new InetSocketAddress(HostAddress, 8888),500);
-                sendReceive = new SendReceive(socket);
-                sendReceive.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    Handler handler = new Handler(new Handler.Callback() {
+     static Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
@@ -341,47 +353,4 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     });
-
-    private class SendReceive extends Thread {
-        private Socket socket;
-        private InputStream inputStream;
-        private OutputStream outputStream;
-
-        public SendReceive(Socket skt) {
-            socket = skt;
-
-            try {
-                inputStream = socket.getInputStream();
-                outputStream = socket.getOutputStream();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public void run() {
-            byte[] buffer = new byte[1024];
-            int bytes;
-
-            while (socket != null) {
-                try {
-                    bytes = inputStream.read(buffer);
-                    if (bytes > 0) {
-                        handler.obtainMessage(MESSAGE_READ, bytes, -1, buffer).sendToTarget();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        public void Write(byte[] bytes) {
-            try {
-                outputStream.write(bytes);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
 }
