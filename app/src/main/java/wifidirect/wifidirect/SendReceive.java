@@ -21,6 +21,7 @@ public class SendReceive extends Thread {
         }
     }
 
+    // Recieve Message
     @Override
     public void run() {
         byte[] buffer = new byte[1024];
@@ -38,6 +39,7 @@ public class SendReceive extends Thread {
         }
     }
 
+    // Send Message
     public void Write(final byte[] bytes) {
 
         new Thread(new Runnable() {

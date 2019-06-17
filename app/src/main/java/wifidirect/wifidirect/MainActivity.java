@@ -25,36 +25,43 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnonoff, btnDiscover, btnSend;
+    // Use this button to turn on or off the WiFi
+    Button btnonoff;
+
+    // Use this button to discover nearby peers
+    Button btnDiscover;
+
+    // Use this button to send messages
+    Button btnSend;
+
+    // Use this button to change private/group mode
     ToggleButton btnPrivateGroup;
+
+    // Use this ListView to show the neerby peers
     ListView listView;
+
+    // Use this textview to show the recieved message
     static TextView read_msg_box;
+
+    // Use this textview to show connection status
     TextView ConnectionStatus;
+
+    // Use this EditText to write message
     EditText writeMsg;
 
     boolean isGroup = false ;
 
     WifiManager wifiManager;
-
     WifiP2pManager manager;
     WifiP2pManager.Channel channel;
-
     BroadcastReceiver Receiver;
     IntentFilter intentFilter;
-
     List<WifiP2pDevice> peers = new ArrayList<WifiP2pDevice>();
 
     // Use this array to show Device name in ListView
@@ -76,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize the neseccary variables
         Initialize();
 
         // Location permission is necessary to use Wifi Direct
@@ -157,9 +165,9 @@ public class MainActivity extends AppCompatActivity {
                 manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
                     @Override
                     public void onSuccess() {
-                        //Discovery Started successfully and
+                        // Discovery Started successfully and
                         // the system broadcasts the WIFI_P2P_PEERS_CHANGED_ACTION intent
-                        //which you can listen for in a broadcast receiver to obtain a list of peers
+                        // which you can listen for in a broadcast receiver to obtain a list of peers
                         ConnectionStatus.setText("Discovery Started");
                     }
 
@@ -173,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Change the mode to application
+        // Change the mode of application
         // there is two mode:
         // 1. Private mode: Send and recieve messages between two people
         // 2. Group mode: Send and recieve messages between more than two peoples
@@ -198,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
         // Connect to peer
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+            public void onItemClick(final AdapterView<?> adapterView, final View view, int i, long id) {
 
                 if(!isGroup)
                 {
@@ -210,11 +218,13 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess() {
                             Toast.makeText(getApplicationContext(), "Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
+
+                            ((TextView)view).setText(device.deviceName + "\n connected");
                         }
 
                         @Override
                         public void onFailure(int reason) {
-                            Toast.makeText(getApplicationContext(), " Not Connected to ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), " Not Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -233,53 +243,51 @@ public class MainActivity extends AppCompatActivity {
                     });
 
                 }
-
-
             }
         });
 
-        //Send Message
+        // Send Message
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String msg = writeMsg.getText().toString();
                 sendReceive.Write(msg.getBytes());
+                writeMsg.setText("");
             }
         });
-
     }
 
     private void Initialize() {
-//        Button to enable and disable WiFi
+        // Button to enable and disable WiFi
         btnonoff = (Button) findViewById(R.id.onoff);
 
-//        Button to discover peers
+        // Button to discover peers
         btnDiscover = (Button) findViewById(R.id.discover);
 
-//        Button to send message
+        // Button to send message
         btnSend = (Button) findViewById(R.id.sendButton);
 
-//        Button to change private mode and group mode
+        // Button to change private mode and group mode
         btnPrivateGroup = findViewById(R.id.privateGroupbtn);
 
-//        listView to Show all available peers
+        // listView to Show all available peers
         listView = (ListView) findViewById(R.id.peerListView);
 
-//        TextView to show message
+        // TextView to show message
         read_msg_box = (TextView) findViewById(R.id.readMsg);
 
-//        TextView to show connection status
+        // TextView to show connection status
         ConnectionStatus = (TextView) findViewById(R.id.connectionStatus);
 
-//        EditText to write meassage
+        // EditText to write meassage
         writeMsg = (EditText) findViewById(R.id.writeMsg);
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
-//        This class provides the API for managing  Wifi peer to peer connectivity
+        // This class provides the API for managing  Wifi peer to peer connectivity
         manager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
 
-//        A channel  that connects the application to the WiFi p2p framework
+        // A channel  that connects the application to the WiFi p2p framework
         channel = manager.initialize(this, getMainLooper(), null);
 
         Receiver = new WifiDirectBroadcastReceiver(manager, channel, this);

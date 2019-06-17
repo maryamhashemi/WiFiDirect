@@ -1,13 +1,11 @@
 package wifidirect.wifidirect;
 
-import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.NetworkInfo;
 import android.net.wifi.p2p.WifiP2pManager;
-import android.os.Build;
+
 import android.widget.Toast;
 
 /*
