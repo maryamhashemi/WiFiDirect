@@ -8,4 +8,10 @@
     <string name="discover_btn_text">Discover</string>
     <string name="message_text">Message</string>
     <string name="on_state_code">group mode</string>
+    <string name="WiFi_on_Text">on</string>
+    <string name="WiFi_Off_Text">off</string>
+    <string name="Discovery_Success">Discovery Started</string>
+    <string name="Discovery_Fail">Discovery Starting failed</string>
+    <string name="Host">Host</string>
+    <string name="client">Client</string>
 </resources>

@@ -72,9 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
     static final int MESSAGE_READ = 1;
 
-    Server server;
-    Client client;
-    static SendReceive sendReceive;
+    Server server = null;
+    Client client = null;
 
     static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
 
@@ -115,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-            return;
         }
     }
 
@@ -136,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
                             "permission denied",
                             Toast.LENGTH_LONG).show();
                 }
-                return;
             }
         }
     }
@@ -149,10 +146,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (wifiManager.isWifiEnabled()) {
                     wifiManager.setWifiEnabled(false);
-                    btnonoff.setText("on");
+                    btnonoff.setText(getString(R.string.WiFi_on_Text));
                 } else {
                     wifiManager.setWifiEnabled(true);
-                    btnonoff.setText("off");
+                    btnonoff.setText(getString(R.string.WiFi_Off_Text));
                 }
 
             }
@@ -168,13 +165,13 @@ public class MainActivity extends AppCompatActivity {
                         // Discovery Started successfully and
                         // the system broadcasts the WIFI_P2P_PEERS_CHANGED_ACTION intent
                         // which you can listen for in a broadcast receiver to obtain a list of peers
-                        ConnectionStatus.setText("Discovery Started");
+                        ConnectionStatus.setText(getString(R.string.Discovery_Success));
                     }
 
                     @Override
                     public void onFailure(int reason) {
                         //Discovery not started
-                        ConnectionStatus.setText("Discovery Starting failed");
+                        ConnectionStatus.setText(getString(R.string.Discovery_Fail));
 
                     }
                 });
@@ -193,6 +190,19 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Group mode",Toast.LENGTH_SHORT).show();
                     btnPrivateGroup.setTextOn("Group mode");
                     isGroup = true;
+
+                    manager.createGroup(channel, new WifiP2pManager.ActionListener() {
+                        @Override
+                        public void onSuccess() {
+                            Toast.makeText(getApplicationContext(),"Group is created successfully",Toast.LENGTH_SHORT);
+
+                        }
+
+                        @Override
+                        public void onFailure(int reason) {
+                            Toast.makeText(getApplicationContext(),"Create group is failed",Toast.LENGTH_SHORT);
+                        }
+                    });
                 }
                 else
                 {
@@ -208,8 +218,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(final AdapterView<?> adapterView, final View view, int i, long id) {
 
-                if(!isGroup)
-                {
+                //if(!isGroup)
+                //{
                     final WifiP2pDevice device = deviceArray[i];
                     WifiP2pConfig config = new WifiP2pConfig();
                     config.deviceAddress = device.deviceAddress;
@@ -227,22 +237,22 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), " Not Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
                         }
                     });
-                }
-                else
-                {
-                    manager.createGroup(channel, new WifiP2pManager.ActionListener() {
-                        @Override
-                        public void onSuccess() {
-                            Toast.makeText(getApplicationContext(),"Group is created successfully",Toast.LENGTH_SHORT);
-                        }
-
-                        @Override
-                        public void onFailure(int reason) {
-                            Toast.makeText(getApplicationContext(),"Create Group is failed",Toast.LENGTH_SHORT);
-                        }
-                    });
-
-                }
+                //}
+//                else
+//                {
+//                    manager.createGroup(channel, new WifiP2pManager.ActionListener() {
+//                        @Override
+//                        public void onSuccess() {
+//                            Toast.makeText(getApplicationContext(),"Group is created successfully",Toast.LENGTH_SHORT);
+//                        }
+//
+//                        @Override
+//                        public void onFailure(int reason) {
+//                            Toast.makeText(getApplicationContext(),"Create Group is failed",Toast.LENGTH_SHORT);
+//                        }
+//                    });
+//
+//                }
             }
         });
 
@@ -251,7 +261,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String msg = writeMsg.getText().toString();
-                sendReceive.Write(msg.getBytes());
+                if(client != null)
+                {
+                    client.Send(msg);
+                }
+                if(server != null)
+                {
+                    server.Send(msg);
+                }
                 writeMsg.setText("");
             }
         });
@@ -259,28 +276,28 @@ public class MainActivity extends AppCompatActivity {
 
     private void Initialize() {
         // Button to enable and disable WiFi
-        btnonoff = (Button) findViewById(R.id.onoff);
+        btnonoff = findViewById(R.id.onoff);
 
         // Button to discover peers
-        btnDiscover = (Button) findViewById(R.id.discover);
+        btnDiscover = findViewById(R.id.discover);
 
         // Button to send message
-        btnSend = (Button) findViewById(R.id.sendButton);
+        btnSend = findViewById(R.id.sendButton);
 
         // Button to change private mode and group mode
         btnPrivateGroup = findViewById(R.id.privateGroupbtn);
 
         // listView to Show all available peers
-        listView = (ListView) findViewById(R.id.peerListView);
+        listView = findViewById(R.id.peerListView);
 
         // TextView to show message
-        read_msg_box = (TextView) findViewById(R.id.readMsg);
+        read_msg_box = findViewById(R.id.readMsg);
 
         // TextView to show connection status
-        ConnectionStatus = (TextView) findViewById(R.id.connectionStatus);
+        ConnectionStatus = findViewById(R.id.connectionStatus);
 
         // EditText to write meassage
-        writeMsg = (EditText) findViewById(R.id.writeMsg);
+        writeMsg = findViewById(R.id.writeMsg);
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
@@ -326,7 +343,6 @@ public class MainActivity extends AppCompatActivity {
 
             if (peers.size() == 0) {
                 Toast.makeText(getApplicationContext(), "No Device Found", Toast.LENGTH_SHORT).show();
-                return;
             }
         }
     };
@@ -337,13 +353,15 @@ public class MainActivity extends AppCompatActivity {
             final InetAddress groupOwnerAddress = wifiP2pInfo.groupOwnerAddress;
 
             if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner) {
-                ConnectionStatus.setText("Host");
+                ConnectionStatus.setText(getString(R.string.Host));
                 server = new Server();
-                server.start();
+                server.Accept();
+
             } else if (wifiP2pInfo.groupFormed) {
-                ConnectionStatus.setText("Client");
+                ConnectionStatus.setText(getString(R.string.client));
                 client = new Client(groupOwnerAddress);
-                client.start();
+                client.Connect();
+                //client.Recieve();
             }
         }
     };

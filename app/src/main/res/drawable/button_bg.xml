@@ -4,6 +4,7 @@
     <gradient
         android:endColor="@color/colorEndGradiant"
 
-        android:startColor="@color/colorStartGradiant" />
+        android:startColor="@color/colorStartGradiant"
+        android:angle="45"/>
     <corners android:radius="10dp"></corners>
 </shape>
