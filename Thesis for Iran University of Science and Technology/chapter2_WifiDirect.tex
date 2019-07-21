@@ -1,0 +1,170 @@
+% !TeX root=main.tex
+\chapter{آشنایی با فناوری \lr{WiFi Direct}}
+\thispagestyle{empty}
+
+\section{مقدمه}
+\lr{WiFi Direct}
+ فناوری جدید تعریف شده توسط اتحادیه 
+\lr{WiFi}
+\LTRfootnote{WiFi alliance}
+  است که هدف آن ارتقاء ارتباط مستقیم بین دستگاه ها است بدون این که به یک نقطه دسترسی بی سیم
+\LTRfootnote{wireless access point} 
+   نیاز باشد.
+\lr{WiFi Direct}
+بر روی زیر ساخت موفق 
+\lr{IEEE 802.11}
+بنا شده است و این اجازه را به دستگاه ها می دهد که در یک ارتباط چه کسی نقش  نقطه دسترسی بی سیم را ایفا کند و عملکرد آن را انجام دهد. در حال حاضر می توان با استفاده از استاندارد 
+\lr{IEEE 802.11}
+یک ارتباط مستقیم بین دستگاه ها ایجاد کرد اما اشکالاتی فراوانی همچون فقدان صرفه جویی در انرژی
+\LTRfootnote{power saving} 
+ دستگاه دارد.
+ 
+\section{بررسی فنی}
+ در یک شبکه معمولی 
+\lr{WiFi}
+مشتری
+\LTRfootnote{client}
+ اسکن می کند وعضو یکی  از شبکه های بی سیم موجود که توسط نقطه دسترسی بی سیم ایجاد و اعلام شده است؛ می شود. این فرایند در 
+\lr{WiFi Direct}
+به صورت پویا
+\LTRfootnote{dynamic}
+انجام می شود از این رو یک دستگاه 
+\lr{WiFi Direct}
+باید هر دو نقش مشتری و نقطه دسترسی بی سیم را به طور همزمان اجرا کند.
+\section{معماری}
+دستگاه های دارای 
+\lr{WiFi Direct}
+با ایجاد یک گروه با عنوان 
+\lr{P2P Group}
+می توانند با یکدیگر ارتباط برقرار کنند. دستگاهی که عملکردی همچون نقطه ی دسترسی بی سیم دارد را 
+\lr{P2P Group Owner}
+می نامند و دستگاهی که در نقش مشتری است را 
+\lr{P2P client}
+گویند.
+هنگامی که یک 
+\lr{P2P Group}
+ایجاد می شود، سایر مشتری ها می توانند با همان روش سنتی شبکه های 
+\lr{WiFi}
+به گروه بپیوندند. زمانی که یک دستگاه هم در نقش 
+\lr{P2P Client}
+ و هم در نقش 
+\lr{P2P Group Owner}
+باشد، دستگاه به طور متناوب با استفاده از اشتراک زمانی 
+\LTRfootnote{time sharing}
+بین این دو نقش تغییر می کند.(مثال: لپتاپ 2 در بالای شکل \ref{fig:WifiDirectArchitecture})
+
+ مانند یک نقطه ی دسترسی بی سیم سنتی، یک
+\lr{P2P Group Owner}
+  خود را از طریق 
+\lr{beacons}
+  اعلام می کند. تنها دستگاهی که 
+\lr{P2P Group Owner}
+ است قادر است دستگاه های متصل در گروه خود را به یک شبکه ی خارجی متصل کند.(مثال: موبایل موجود در بالا ی شکل \ref{fig:WifiDirectArchitecture}) این ارتباط باید در لایه ی شبکه 
+\LTRfootnote{Network Layer}
+اتفاق بیفتد و معمولا با استفاده از 
+\lr{NAT}
+\LTRfootnote{Network Address Translation}
+پیاده سازی می شود.
+\lr{WiFi Direct}
+اجازه نمی دهد که نقش 
+\lr{P2P Group Owner}
+به افراد دیگری در گروه انتقال یابد.
+
+\begin{figure}
+	\centerline{
+	\includegraphics{images/wifidirectarchitecture.jpg}}
+	\caption{معماری \lr{Wifi Direct}}
+	\label{fig:WifiDirectArchitecture}
+\end{figure}
+
+\section{تشکیل گروه}
+سه نوع روش برای تشکیل گروه در فناوری
+\lr{WiFi Direct}
+وجود دارد که عبارتند از استاندار
+\LTRfootnote{Standard}
+،مستقل
+\LTRfootnote{Autonomus}
+و پایدار
+\LTRfootnote{Persistent}
+.
+\\ \\ \\
+تشکیل گروه شامل دو مرحله است:
+\begin{enumerate}
+	\item تعیین \lr{P2P Group Owner}
+	\begin{itemize}
+		\item  دو دستگاه با توجه به تمایل یا قابلیت برای \lr{P2P Group Owner} شدن با یکدیگر مذاکره می کنند.
+		\item در نهایت در این مرحله نقش مالک گروه در سطح اپلیکیشن ایجاد می شود. 
+	\end{itemize}
+	\item تهیه ی \lr{P2P Group}
+	\begin{itemize}
+		\item ایجاد \lr{session} گروه با استفاده از مدارک\LTRfootnote{Credentials} معتبر
+		\item استفاده از پیکربندی\LTRfootnote{Configuartion} ساده \lr{Wifi} برای تبادل مدارک.
+	\end{itemize}
+\end{enumerate}
+
+\subsection{استاندارد}\label{subsec:Standard}
+در این حالت دستگاه ها باید یکدیگر را پیدا 
+\LTRfootnote{Discovery}
+کنند و سپس مذاکره کنند که کدام دستگاه به عنوان  مالک گروه عمل خواهد کرد. شروع آن با انجام یک اسکن مانند 
+\lr{WiFi}
+ سنتی است که با استفاده از آن می توانند گروه ها و شبکه های
+ \lr{WiFi}
+  موجود را پیدا کنند. برای جلوگیری از تضاد، زمانی که دو دستگاه آمادگی خود را برای مالک گروه شدن اعلام می کنند، یک بیت 
+\lr{tie-breaker}
+   در درخواست قرار می گیرد. هر بار که یک درخواست ارسال می شود، به طور تصادفی این بیت تنظیم می شود.
+\subsection{مستقل}
+یک دستگاه می تواند به صورت خودکار یک گروه  ایجاد کند و بلافاصله این دستگاه مالک گروه می شود. دستگاه های دیگر می توانند گروه های ایجاد شده را با استفاده از مکانیزم های سنتی اسکن پیدا کنند. در مقایسه با بخش \ref{subsec:Standard}، مرحله پیدا کردن در این مورد ساده تر است، زیرا مرحله مذاکره برای مالک گروه شدن حذف شده است.
+\subsection{پایدار}
+در این فرآیند، دستگاه می تواند با استفاده از پرچم 
+\LTRfootnote{Flag}
+که به عنوان یک ویژگی در فریم های 
+\lr{beacon}
+موجود است یک گروه را به عنوان گروه پایدار اعلام کند.
+پس از مرحله پیدا کردن، اگر یک دستگاه تشخیص دهد که یک گروه پایدار با همتای مربوطه در گذشته تشکیل داده باشد، هر یک از دو دستگاه می تواند از روش دعوت
+\LTRfootnote{Invitation}
+ برای استفاده سریع از گروه مجددا استفاده کنند.
+\section{امنیت}
+دستگاه های
+\lr{Wifi Direct}
+از 
+\lr{WPS} \LTRfootnote{WiFi Protected Setup}
+پشتیبانی می کنند.
+\lr{WPS}
+یک اتصال امن را با معرفی یک PIN در مشتری یا فشار دادن یک دکمه در دو دستگاه 
+\lr{P2P}
+ ایحاد می کند.
+ در 
+\lr{WPS}
+مالک گروه نقش 
+\lr{internal register}
+ را اجرا می کند و مشتری نقش 
+\lr{Enrollee}
+ را اجرا می کند. عمل
+\lr{WPS}
+  متشکل از دو بخش است. 
+  
+  در بخش اول، Registrar داخلی مسئول ایجاد و صدور مجوزهای شبکه، یعنی کلید های امنیتی، به Enrollee است. 
+  
+  در بخش دوم، Enrollee قطع می شود و سپس با استفاده ازاحراز هویت 
+\LTRfootnote{Authentication}
+  جدید دوباره ارتباط  برقرار می کند.
+
+\section{ذخیره انرژی}
+\lr{Wifi Direct}
+دو مکانیسم جدید ذخیره انرژی را به کار می گیرد:
+\begin{enumerate}
+	\item پروتکل \lr{Opportunistic Power Save}
+	\item پروتکل \lr{Notice of Absence}
+	
+\end{enumerate}
+\subsection{\lr{Opportunistic Power Save protocol}}
+این پروتکل این اجازه را به مالک گروه می دهد که زمانی که تمامی مشتری های گروه در حالت خواب
+\LTRfootnote{Sleep}
+هستند انرژی خود را ذخیره کند.
+
+\subsection{\lr{Notice of Absence (NOA) protocol}}
+
+\section{فواید}
+\section{نتیجه گیری}
+
+
