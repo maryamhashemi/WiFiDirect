@@ -14,27 +14,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+            <state relative-caret-position="867">
+              <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
               <folding>
-                <element signature="e#3033#3034#0" expanded="true" />
-                <element signature="e#3068#3069#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/Server.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="87" selection-end-column="5" />
+              <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
               <folding>
-                <element signature="e#4551#4552#0" expanded="true" />
-                <element signature="e#4586#4587#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,8 +49,16 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>lo</find>
+      <find>logger</find>
+      <find>Attachment</find>
       <find>ReadWriteHandler</find>
+      <find>sockChannel</find>
     </findStrings>
+    <replaceStrings>
+      <replace>SAttachment</replace>
+      <replace>SReadWriteHandler</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -69,8 +75,8 @@
         <option value="$PROJECT_DIR$/src/AsyncSocket/ClientReadWriteHandler.java" />
         <option value="$PROJECT_DIR$/src/AsyncSocket/EchoClient.java" />
         <option value="$PROJECT_DIR$/src/AsyncSocket/EchoServer.java" />
-        <option value="$PROJECT_DIR$/src/AsyncSocket/Server.java" />
         <option value="$PROJECT_DIR$/src/AsyncSocket/Client.java" />
+        <option value="$PROJECT_DIR$/src/AsyncSocket/Server.java" />
       </list>
     </option>
   </component>
@@ -82,10 +88,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
+    <option name="x" value="1889" />
+    <option name="y" value="44" />
     <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="height" value="838" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -94,28 +100,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AsyncSocket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AsyncSocket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AsyncSocket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AsyncSocket" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AsyncSocket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AsyncSocket" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="AsyncSocket" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -126,6 +111,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
@@ -189,18 +175,18 @@
       <workItem from="1563877216202" duration="8900000" />
       <workItem from="1563886599935" duration="192000" />
       <workItem from="1563886949112" duration="7504000" />
-      <workItem from="1563952813630" duration="5142000" />
+      <workItem from="1563952813630" duration="6322000" />
+      <workItem from="1564211092854" duration="16734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32919000" />
+    <option name="totallyTimeSpent" value="50833000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.17335244" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.17550144" />
       <window_info id="Structure" order="1" sideWeight="0.501002" side_tool="true" weight="0.17120343" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -208,8 +194,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49498567" visible="true" weight="0.32839838" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49426934" weight="0.3270525" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.39838493" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -218,8 +204,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32974428" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5050143" side_tool="true" weight="0.39838493" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5057307" side_tool="true" weight="0.3270525" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -282,24 +268,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/Server.java">
+    <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.base/java/nio/channels/AsynchronousSocketChannel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="87" selection-end-column="5" />
-          <folding>
-            <element signature="e#4551#4552#0" expanded="true" />
-            <element signature="e#4586#4587#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="40">
+          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AsyncSocket/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="80" column="34" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="34" />
+        <state relative-caret-position="867">
+          <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
           <folding>
-            <element signature="e#3033#3034#0" expanded="true" />
-            <element signature="e#3068#3069#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
