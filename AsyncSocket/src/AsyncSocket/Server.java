@@ -10,8 +10,9 @@ import java.nio.channels.CompletionHandler;
 import java.util.concurrent.*;
 
 public class Server {
+    private static int port = 1234;
+    private static int i = 0;
     public static void main(String[] args) throws Exception{
-        int port = 1234;
         try {
             final AsynchronousServerSocketChannel server =
                     AsynchronousServerSocketChannel.open().bind(
@@ -19,24 +20,32 @@ public class Server {
 
             System.out.println("Server listening on " + port);
 
+            ClientHandler clientHandler = new ClientHandler();
+
             server.accept("Client connection",
                     new CompletionHandler<AsynchronousSocketChannel, Object>() {
                         public void completed(AsynchronousSocketChannel ch, Object att) {
-                            System.out.println("Accepted a connection");
+                            i++;
+                            User user = new User(ch, "client" + (i));
+                            clientHandler.Add(user);
+                            System.out.println(user.name + " connected to server.");
 
                             // accept the next connection
                             server.accept("Client connection", this);
 
                             // handle this connection
                             CompletableFuture.runAsync(() -> {
-                                //write an message to server side
+                                //write an message to client side
                                 while(true) {
                                     startWrite(ch);
+                                    //clientHandler.writeToAllUser();
                                 }
                             });
+
                             CompletableFuture.runAsync(() -> {
                                 //start to read message
                                 while(true) {
+                                    //clientHandler.BroadcastRecvMsg();
                                     startRead(ch);
                                 }
                             });

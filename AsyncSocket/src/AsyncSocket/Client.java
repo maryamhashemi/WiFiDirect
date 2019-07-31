@@ -22,7 +22,7 @@ public class Client {
                     new CompletionHandler<Void, AsynchronousSocketChannel>() {
                         @Override
                         public void completed(Void result, AsynchronousSocketChannel channel) {
-                            System.out.println("connected to client");
+                            System.out.println("connected to server.");
 
                             // handle this connection
                             CompletableFuture.runAsync(() -> {
