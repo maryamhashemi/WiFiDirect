@@ -5,82 +5,82 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.util.Vector;
 
-public class WiFiNetService implements IWiFiNetService{
+public class WiFiNetService implements IWiFiNetService {
 
     Vector<Device> DeviceList = new Vector<Device>();
 
     @Override
-    public void Send(Device device, String Msg){
-        StartWrite(device.channel, Msg);
+    public void Send(Device device, String Msg) {
+        StartWrite(device, Msg);
     }
 
-    @Override
-    public void MsgRecievedDirect(Device device){
-        StartRead(device.channel);
-    }
+    public IMsgReceived msgReceivedHandler = new MsgReceivedHandler();
+    public IMsgReceived bcMsgReceivedHandler = new BCMsgReceivedHandler();
 
     @Override
-    public void MsgRecievedBC(){
-        for(Device device: DeviceList)
-        {
-            String Msg = StartRead(device.channel);
-            BroadCast(Msg);
+    public void BroadCast(String Msg) {
+        for (Device device : DeviceList) {
+            StartWrite(device, Msg);
         }
     }
 
     @Override
-    public void BroadCast(String Msg){
-        for(Device device: DeviceList)
-        {
-            StartWrite(device.channel, Msg);
-        }
-    }
-
-    @Override
-    public void HandleBroadCast(){
-        //TODO
-    }
-
-    @Override
-    public void StartWrite(AsynchronousSocketChannel channel, String Msg){
+    public void StartWrite(Device device, String Msg) {
         ByteBuffer buf = ByteBuffer.allocate(2048);
         buf.put(Msg.getBytes());
         buf.flip();
-        channel.write(buf, channel,
-                new CompletionHandler<Integer, AsynchronousSocketChannel >() {
+        device.channel.write(buf, device.channel,
+                new CompletionHandler<Integer, AsynchronousSocketChannel>() {
                     @Override
-                    public void completed(Integer result, AsynchronousSocketChannel channel ) {
+                    public void completed(Integer result, AsynchronousSocketChannel channel) {
                         //after message written
                         //NOTHING TO DO
                     }
 
                     @Override
                     public void failed(Throwable exc, AsynchronousSocketChannel channel) {
-                        System.out.println( "Fail to write the message.");
+                        System.out.println("Fail to write the message.");
                     }
                 });
     }
 
     @Override
-    public String StartRead(AsynchronousSocketChannel channel)
-    {
+    public void StartRead(Device device) {
         ByteBuffer buf = ByteBuffer.allocate(2048);
         final String[] Msg = {new String()};
-        channel.read( buf, channel,
-                new CompletionHandler<Integer, AsynchronousSocketChannel>(){
+        device.channel.read(buf, device.channel,
+                new CompletionHandler<Integer, AsynchronousSocketChannel>() {
                     @Override
                     public void completed(Integer result, AsynchronousSocketChannel channel) {
-                        //TODO : show message in console or in UI
-                        Msg[0] = new String( buf.array());
+                       String msg = new String(buf.array());
+                        msgReceivedHandler.MsgReceived(device,msg);
+                        BroadCast(msg);
+                        StartRead(device);
                     }
 
                     @Override
                     public void failed(Throwable exc, AsynchronousSocketChannel channel) {
-                        System.out.println( "fail to read message.");
+                        System.out.println("fail to read message.");
                     }
 
                 });
-        return Msg[0];
     }
 
+    public class MsgReceivedHandler implements IMsgReceived {
+        @Override
+        public void MsgReceived(Device device,String msg) {
+            System.out.println(msg);
+        }
+
+    }
+
+    public class BCMsgReceivedHandler implements IMsgReceived {
+        @Override
+        public void MsgReceived(Device device,String msg) {
+
+        }
+
+    }
 }
+
+
