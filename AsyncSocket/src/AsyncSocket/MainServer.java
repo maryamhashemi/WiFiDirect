@@ -43,7 +43,7 @@ public class MainServer {
 
                             CompletableFuture.runAsync(() -> {
                                 while (true) {
-                                    service.StartRead(device);
+                                    service.RecieveBroadcast(device);
                                 }
                             });
                         }

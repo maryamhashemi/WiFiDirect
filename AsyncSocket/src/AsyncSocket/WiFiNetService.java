@@ -14,6 +14,11 @@ public class WiFiNetService implements IWiFiNetService {
         StartWrite(device, Msg);
     }
 
+    @Override
+    public void Recieve(Device device) {
+        StartRead(device);
+    }
+    
     public IMsgReceived msgReceivedHandler = new MsgReceivedHandler();
     public IMsgReceived bcMsgReceivedHandler = new BCMsgReceivedHandler();
 
@@ -55,6 +60,27 @@ public class WiFiNetService implements IWiFiNetService {
                        String msg = new String(buf.array());
                         msgReceivedHandler.MsgReceived(device,msg);
                         BroadCast(msg);
+                        StartRead(device);
+                    }
+
+                    @Override
+                    public void failed(Throwable exc, AsynchronousSocketChannel channel) {
+                        System.out.println("fail to read message.");
+                    }
+
+                });
+    }
+
+    @Override
+    public void RecieveBroadcast(Device device) {
+        ByteBuffer buf = ByteBuffer.allocate(2048);
+        final String[] Msg = {new String()};
+        device.channel.read(buf, device.channel,
+                new CompletionHandler<Integer, AsynchronousSocketChannel>() {
+                    @Override
+                    public void completed(Integer result, AsynchronousSocketChannel channel) {
+                        String msg = new String(buf.array());
+                        msgReceivedHandler.MsgReceived(device,msg);
                         StartRead(device);
                     }
 

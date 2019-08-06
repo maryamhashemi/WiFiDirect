@@ -32,7 +32,7 @@ public class MainClient {
 
                             CompletableFuture.runAsync(() -> {
                                 while (true) {
-                                    service.StartRead(device);
+                                    service.Recieve(device);
                                 }
                             });
                             ;
