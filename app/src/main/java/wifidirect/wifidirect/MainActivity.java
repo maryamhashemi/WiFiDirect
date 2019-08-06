@@ -26,6 +26,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     // Use this EditText to write message
     EditText writeMsg;
 
-    boolean isGroup = false ;
+    boolean isGroup = false;
 
     WifiManager wifiManager;
     WifiP2pManager manager;
@@ -186,28 +187,25 @@ public class MainActivity extends AppCompatActivity {
         btnPrivateGroup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked)
-                {
-                    Toast.makeText(getApplicationContext(),"Group mode",Toast.LENGTH_SHORT).show();
+                if (isChecked) {
+                    Toast.makeText(getApplicationContext(), "Group mode", Toast.LENGTH_SHORT).show();
                     btnPrivateGroup.setTextOn("Group mode");
                     isGroup = true;
 
                     manager.createGroup(channel, new WifiP2pManager.ActionListener() {
                         @Override
                         public void onSuccess() {
-                            Toast.makeText(getApplicationContext(),"Group is created successfully",Toast.LENGTH_SHORT);
+                            Toast.makeText(getApplicationContext(), "Group is created successfully", Toast.LENGTH_SHORT).show();
 
                         }
 
                         @Override
                         public void onFailure(int reason) {
-                            Toast.makeText(getApplicationContext(),"Create group is failed",Toast.LENGTH_SHORT);
+                            Toast.makeText(getApplicationContext(), "Create group is failed", Toast.LENGTH_SHORT).show();
                         }
                     });
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Privatie mode",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Privatie mode", Toast.LENGTH_SHORT).show();
                     btnPrivateGroup.setTextOff("Private mode");
                     isGroup = false;
                 }
@@ -221,23 +219,23 @@ public class MainActivity extends AppCompatActivity {
 
                 //if(!isGroup)
                 //{
-                    final WifiP2pDevice device = deviceArray[i];
-                    WifiP2pConfig config = new WifiP2pConfig();
-                    config.deviceAddress = device.deviceAddress;
+                final WifiP2pDevice device = deviceArray[i];
+                WifiP2pConfig config = new WifiP2pConfig();
+                config.deviceAddress = device.deviceAddress;
 
-                    manager.connect(channel, config, new WifiP2pManager.ActionListener() {
-                        @Override
-                        public void onSuccess() {
-                            Toast.makeText(getApplicationContext(), "Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
+                manager.connect(channel, config, new WifiP2pManager.ActionListener() {
+                    @Override
+                    public void onSuccess() {
+                        Toast.makeText(getApplicationContext(), "Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
 
-                            ((TextView)view).setText(device.deviceName + "\n connected");
-                        }
+                        ((TextView) view).setText(device.deviceName + "\n connected");
+                    }
 
-                        @Override
-                        public void onFailure(int reason) {
-                            Toast.makeText(getApplicationContext(), " Not Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    @Override
+                    public void onFailure(int reason) {
+                        Toast.makeText(getApplicationContext(), " Not Connected to " + device.deviceName, Toast.LENGTH_SHORT).show();
+                    }
+                });
                 //}
 //                else
 //                {
@@ -261,16 +259,7 @@ public class MainActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String msg = writeMsg.getText().toString();
-                if(client != null)
-                {
-                    client.Send(msg);
-                }
-                if(server != null)
-                {
-                    server.Send(msg);
-                }
-                writeMsg.setText("");
+                //ToDo:Send Message
             }
         });
     }
@@ -338,36 +327,35 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 ArrayAdapter<String> adapter =
-                        new ArrayAdapter<String>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, DeviceNameArray);
+                        new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, DeviceNameArray);
                 listView.setAdapter(adapter);
             }
 
-            if (peers.size() == 0) {
+            if (peers.size() == 0)
                 Toast.makeText(getApplicationContext(), "No Device Found", Toast.LENGTH_SHORT).show();
-            }
         }
     };
 
     WifiP2pManager.ConnectionInfoListener connectionInfoListener = new WifiP2pManager.ConnectionInfoListener() {
         @Override
         public void onConnectionInfoAvailable(WifiP2pInfo wifiP2pInfo) {
-            final InetAddress groupOwnerAddress = wifiP2pInfo.groupOwnerAddress;
+            //final InetAddress groupOwnerAddress = wifiP2pInfo.groupOwnerAddress;
 
             if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner) {
                 ConnectionStatus.setText(getString(R.string.Host));
                 server = new Server();
-                server.Accept();
+                server.Start();
 
             } else if (wifiP2pInfo.groupFormed) {
                 ConnectionStatus.setText(getString(R.string.client));
-                client = new Client(groupOwnerAddress);
-                client.Connect();
+                client = new Client();
+                client.Start();
                 //client.Recieve();
             }
         }
     };
 
-     static Handler handler = new Handler(new Handler.Callback() {
+    static Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
             switch (msg.what) {

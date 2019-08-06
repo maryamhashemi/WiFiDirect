@@ -1,90 +1,64 @@
 package wifidirect.wifidirect;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.Vector;
+import java.net.InetSocketAddress;
+import java.nio.channels.AsynchronousServerSocketChannel;
+import java.nio.channels.AsynchronousSocketChannel;
+import java.nio.channels.CompletionHandler;
+import java.util.concurrent.CompletableFuture;
 
 public class Server implements IServer {
 
-    //Vector to store active clients
-    static Vector<ClientHandler> clients = new Vector<>();
-
-    Socket socket;
-    ServerSocket serverSocket;
-
-    // Counter for clients
-    int i = 0;
+    public static int i = 0;
 
     @Override
-    public void Accept() {
-        Thread accept = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    serverSocket = new ServerSocket(8888);
-                    // running infinite loop for getting
-                    // client request
-                    while (true) {
-                        // Accept the incoming request
-                        socket = serverSocket.accept();
+    public void Start() {
+        WiFiNetService service = new WiFiNetService();
+        int port = 1234;
+        String hostname = "127.0.0.1";
 
-                        // obtain input and output streams
-                        DataInputStream dis = new DataInputStream(socket.getInputStream());
-                        DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+        try {
+            final AsynchronousServerSocketChannel server =
+                    AsynchronousServerSocketChannel.open().bind(
+                            new InetSocketAddress(hostname, port));
+            System.out.println("Server listening on " + port);
 
+            server.accept("Client connection",
+                    new CompletionHandler<AsynchronousSocketChannel, Object>() {
+                        public void completed(AsynchronousSocketChannel channel, Object att) {
+                            i++;
+                            Device device = new Device(channel, "client" + (i));
+                            service.DeviceList.add(device);
+                            System.out.println(device.name + " connected to server.");
 
-                        // Create a new handler object for handling this request.
-                        final ClientHandler client = new ClientHandler(socket, "client " + i, dis, dos);
+                            server.accept("Client connection", this);
 
-                        // Create a new Thread with this object.
-                        Thread t = new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                client.Broadcast();
-                            }
-                        });
+                            CompletableFuture.runAsync(() -> {
 
-                        // add this client to active clients list
-                        clients.add(client);
+                                while (true) {
+                                    String msg = getMsg();
+                                    service.BroadCast(msg);
+                                }
+                            });
 
-                        // start the thread.
-                        t.start();
+                            CompletableFuture.runAsync(() -> {
+                                while (true) {
+                                    service.RecieveBroadcast(device);
+                                }
+                            });
+                        }
 
-                        // increment i for new client.
-                        // i is used for naming only, and can be replaced
-                        // by any naming scheme
-                        i++;
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        accept.start();
+                        public void failed(Throwable exc, Object att) {
+                            System.out.println("Failed to accept connection");
+                        }
+                    });
+            Thread.currentThread().join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    @Override
-    public void Send(final String msg) {
-        Thread SendMessage = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    for (ClientHandler c : clients) {
-                        if (c.isloggedin) {
-                            c.dos.writeUTF(msg);
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        SendMessage.start();
+    public static String getMsg() {
+        //ToDo: get message from edit text
+        return new String();
     }
 }

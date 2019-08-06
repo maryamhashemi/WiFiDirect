@@ -1,4 +1,4 @@
-package AsyncSocket;
+package wifidirect.wifidirect;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
@@ -50,14 +50,14 @@ public class WiFiNetService implements IWiFiNetService {
     }
 
     @Override
-    public void StartRead(Device device) {
-        ByteBuffer buf = ByteBuffer.allocate(2048);
+    public void StartRead(final Device device) {
+        final ByteBuffer buf = ByteBuffer.allocate(2048);
         final String[] Msg = {new String()};
         device.channel.read(buf, device.channel,
                 new CompletionHandler<Integer, AsynchronousSocketChannel>() {
                     @Override
                     public void completed(Integer result, AsynchronousSocketChannel channel) {
-                       String msg = new String(buf.array());
+                        String msg = new String(buf.array());
                         msgReceivedHandler.MsgReceived(device,msg);
                         BroadCast(msg);
                         StartRead(device);
@@ -72,8 +72,8 @@ public class WiFiNetService implements IWiFiNetService {
     }
 
     @Override
-    public void RecieveBroadcast(Device device) {
-        ByteBuffer buf = ByteBuffer.allocate(2048);
+    public void RecieveBroadcast(final Device device) {
+        final ByteBuffer buf = ByteBuffer.allocate(2048);
         final String[] Msg = {new String()};
         device.channel.read(buf, device.channel,
                 new CompletionHandler<Integer, AsynchronousSocketChannel>() {
