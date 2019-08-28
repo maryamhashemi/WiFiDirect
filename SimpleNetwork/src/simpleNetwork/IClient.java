@@ -1,9 +1,11 @@
 package simpleNetwork;
 
 public interface IClient {
-	
-	public void Connect(int port);
-	public void Send(String msg);
-	public void Recieve();
+
+    void Connect(int port);
+
+    void Send(String msg);
+
+    void Receive();
 
 }

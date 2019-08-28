@@ -1,6 +1,6 @@
 package simpleNetwork;
 
 public interface IClientHandler {
-	
-	public void Broadcast();
+
+    void Broadcast();
 }

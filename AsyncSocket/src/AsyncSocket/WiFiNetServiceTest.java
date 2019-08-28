@@ -1,40 +1,41 @@
 package AsyncSocket;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.net.InetSocketAddress;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.util.concurrent.CompletableFuture;
 
-public class MainClient {
+public class WiFiNetServiceTest {
 
-    public static void main(String[] args) throws Exception {
+    @Test
+    public void test1() {
+        WiFiNetService service = new WiFiNetService();
+        int port = 1234;
+        String hostname = "127.0.0.1";
+        final String[] respond = {new String()};
+
         try {
-            WiFiNetService service = new WiFiNetService();
-            int port = 1234;
-            String hostname = "127.0.0.1";
+
             AsynchronousSocketChannel client = AsynchronousSocketChannel.open();
             client.connect(new InetSocketAddress(hostname, port), client,
                     new CompletionHandler<Void, AsynchronousSocketChannel>() {
                         @Override
                         public void completed(Void result, AsynchronousSocketChannel channel) {
                             System.out.println("connected to server.");
+                            Device device = new Device(client, "client 1");
 
-                            Device device = new Device(channel, "client");
                             CompletableFuture.runAsync(() -> {
-                                while (true) {
-                                    String msg = getMsg();
-                                    service.Send(device, msg);
-                                }
+                                while(true)
+                                service.Send(device, "hello");
                             });
 
                             CompletableFuture.runAsync(() -> {
-                                while (true) {
-                                    service.Receive(device);
-                                }
+                                service.Receive(device);
                             });
+
 
                         }
 
@@ -44,22 +45,8 @@ public class MainClient {
                         }
                     });
             Thread.currentThread().join();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-    }
-
-    private static String getMsg() {
-        BufferedReader consoleReader = new BufferedReader(
-                new InputStreamReader(System.in));
-        String message = "";
-        try {
-            message = consoleReader.readLine();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return message;
     }
 }

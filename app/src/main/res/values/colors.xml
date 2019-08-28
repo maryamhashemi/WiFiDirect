@@ -8,5 +8,6 @@
     <color name="colorEndGradiant">#4499BB</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#dddddd</color>
+    <color name="Black">#000000</color>
 
 </resources>

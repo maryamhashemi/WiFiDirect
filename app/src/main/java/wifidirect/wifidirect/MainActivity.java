@@ -11,9 +11,13 @@ import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceInfo;
+import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceRequest;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,13 +27,16 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.net.InetAddress;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
     // Use this EditText to write message
     EditText writeMsg;
 
+    ProgressBar discoveryProgressbar;
+    SwipeRefreshLayout swipeRefreshLayout;
+
     boolean isGroup = false;
 
     WifiManager wifiManager;
@@ -64,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     WifiP2pManager.Channel channel;
     BroadcastReceiver Receiver;
     IntentFilter intentFilter;
-    List<WifiP2pDevice> peers = new ArrayList<WifiP2pDevice>();
+    List<WifiP2pDevice> peers = new ArrayList<>();
 
     // Use this array to show Device name in ListView
     String[] DeviceNameArray;
@@ -161,6 +171,9 @@ public class MainActivity extends AppCompatActivity {
         btnDiscover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                discoveryProgressbar.setVisibility(View.VISIBLE);
+                discoveryProgressbar.setProgress(20);
+                discoveryProgressbar.setMax(50);
                 manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
                     @Override
                     public void onSuccess() {
@@ -174,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onFailure(int reason) {
                         //Discovery not started
                         ConnectionStatus.setText(getString(R.string.Discovery_Fail));
-
                     }
                 });
             }
@@ -259,7 +271,42 @@ public class MainActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ToDo:Send Message
+                String msg = (String) btnSend.getText();
+
+                if (server != null) {
+                    CompletableFuture.runAsync(() -> {
+                        server.service.BroadCast(msg);
+                    });
+                }
+                if (client != null) {
+
+                }
+            }
+        });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                discoveryProgressbar.setVisibility(View.VISIBLE);
+                discoveryProgressbar.setProgress(20);
+                discoveryProgressbar.setMax(50);
+                manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
+                    @Override
+                    public void onSuccess() {
+                        // Discovery Started successfully and
+                        // the system broadcasts the WIFI_P2P_PEERS_CHANGED_ACTION intent
+                        // which you can listen for in a broadcast receiver to obtain a list of peers
+                        ConnectionStatus.setText(getString(R.string.Discovery_Success));
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+
+                    @Override
+                    public void onFailure(int reason) {
+                        //Discovery not started
+                        ConnectionStatus.setText(getString(R.string.Discovery_Fail));
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                });
             }
         });
     }
@@ -289,6 +336,12 @@ public class MainActivity extends AppCompatActivity {
         // EditText to write meassage
         writeMsg = findViewById(R.id.writeMsg);
 
+        discoveryProgressbar = findViewById(R.id.discoveryProgress);
+        discoveryProgressbar.setVisibility(View.GONE);
+
+        swipeRefreshLayout = findViewById(R.id.swiperefresh);
+        swipeRefreshLayout.setRefreshing(false);
+
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         // This class provides the API for managing  Wifi peer to peer connectivity
@@ -304,6 +357,9 @@ public class MainActivity extends AppCompatActivity {
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
+
+        Toast.makeText(getApplicationContext(), "startRegistration", Toast.LENGTH_SHORT).show();
+        startRegistration();
     }
 
     //  Fetch the list of peers.
@@ -321,7 +377,7 @@ public class MainActivity extends AppCompatActivity {
                 int index = 0;
 
                 for (WifiP2pDevice device : peerList.getDeviceList()) {
-                    DeviceNameArray[index] = device.deviceName;
+                    DeviceNameArray[index] = "maryam" + device.deviceName;
                     deviceArray[index] = device;
                     index++;
                 }
@@ -329,10 +385,13 @@ public class MainActivity extends AppCompatActivity {
                 ArrayAdapter<String> adapter =
                         new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, DeviceNameArray);
                 listView.setAdapter(adapter);
+                discoveryProgressbar.setVisibility(View.GONE);
             }
 
-            if (peers.size() == 0)
+            if (peers.size() == 0) {
                 Toast.makeText(getApplicationContext(), "No Device Found", Toast.LENGTH_SHORT).show();
+                discoveryProgressbar.setVisibility(View.GONE);
+            }
         }
     };
 
@@ -344,13 +403,17 @@ public class MainActivity extends AppCompatActivity {
             if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner) {
                 ConnectionStatus.setText(getString(R.string.Host));
                 server = new Server();
-                server.Start();
+                CompletableFuture.runAsync(() -> {
+                        server.Start();
+                });
 
             } else if (wifiP2pInfo.groupFormed) {
                 ConnectionStatus.setText(getString(R.string.client));
                 client = new Client();
-                client.Start();
-                //client.Recieve();
+                CompletableFuture.runAsync(() -> {
+                       client.Start();
+                });
+
             }
         }
     };
@@ -375,5 +438,87 @@ public class MainActivity extends AppCompatActivity {
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    /**********************************/
+
+    public static final String SERVICE_INSTANCE = "_wifidemotest";
+    public static final String SERVICE_REG_TYPE = "_presence._tcp";
+
+    private void startRegistration() {
+        Map record = new HashMap();
+        record.put("listenport", String.valueOf(1234));
+        record.put("buddyname", Build.MANUFACTURER);
+        record.put("available", "visible");
+
+        WifiP2pDnsSdServiceInfo serviceInfo =
+                WifiP2pDnsSdServiceInfo.newInstance(SERVICE_INSTANCE, SERVICE_REG_TYPE, record);
+
+        manager.addLocalService(channel, serviceInfo, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+                Toast.makeText(getApplicationContext(), "addLocalService successfully", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(int arg0) {
+                Toast.makeText(getApplicationContext(), "addLocalService failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        discoverService();
+    }
+
+    private void discoverService() {
+
+        manager.setDnsSdResponseListeners(channel,
+                new WifiP2pManager.DnsSdServiceResponseListener() {
+                    @Override
+                    public void onDnsSdServiceAvailable(String instanceName,
+                                                        String registrationType, WifiP2pDevice srcDevice) {
+                        // A service has been discovered. Is this our app?
+                        if (instanceName.equalsIgnoreCase(SERVICE_INSTANCE)) {
+                            // update the UI and add the item the discovered
+                            // device.
+                            DeviceNameArray = new String[1];
+                            DeviceNameArray[0] = "NSD : " + srcDevice.deviceName;
+                            ArrayAdapter<String> adapter =
+                                    new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, DeviceNameArray);
+                            listView.setAdapter(adapter);
+                            }
+                        }
+                    }
+                , new WifiP2pManager.DnsSdTxtRecordListener() {
+
+                    @Override
+                    public void onDnsSdTxtRecordAvailable(
+                            String fullDomainName, Map<String, String> record,
+                            WifiP2pDevice device) {
+                    }
+                });
+
+        WifiP2pDnsSdServiceRequest serviceRequest = WifiP2pDnsSdServiceRequest.newInstance();
+        manager.addServiceRequest(channel, serviceRequest,
+                new WifiP2pManager.ActionListener() {
+                    @Override
+                    public void onSuccess() {
+                        ConnectionStatus.setText("addServiceRequest successfully");
+
+                    }
+                    @Override
+                    public void onFailure(int arg0) {
+                        ConnectionStatus.setText("addServiceRequest failed");
+                    }
+                });
+
+        manager.discoverServices(channel, new WifiP2pManager.ActionListener() {
+            @Override
+            public void onSuccess() {
+                ConnectionStatus.setText("discoverServices successfully");
+            }
+            @Override
+            public void onFailure(int arg0) {
+                ConnectionStatus.setText("discoverServices failed");
+            }
+        });
     }
 }

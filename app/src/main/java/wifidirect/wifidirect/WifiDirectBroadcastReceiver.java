@@ -75,9 +75,9 @@ public class WifiDirectBroadcastReceiver extends BroadcastReceiver {
                 mainActivity.ConnectionStatus.setText("Device Disconnected");
             }
         }
-        else if(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action))
-        {
-            // Respond to this Device's Wifi state changing
+        else if(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
+            // ToDo:Respond to this Device's Wifi state changing
         }
+
     }
 }

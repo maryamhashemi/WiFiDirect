@@ -2,7 +2,7 @@ package AsyncSocket;
 
 import java.nio.channels.AsynchronousSocketChannel;
 
-public class Device {
+ class Device {
     AsynchronousSocketChannel channel;
     String name;
 

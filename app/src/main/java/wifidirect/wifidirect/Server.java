@@ -1,5 +1,6 @@
 package wifidirect.wifidirect;
 
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
@@ -9,11 +10,12 @@ import java.util.concurrent.CompletableFuture;
 public class Server implements IServer {
 
     public static int i = 0;
+    WiFiNetService service = new WiFiNetService();
 
     @Override
     public void Start() {
-        WiFiNetService service = new WiFiNetService();
-        int port = 1234;
+
+        int port = 8888;
         String hostname = "127.0.0.1";
 
         try {
@@ -33,21 +35,14 @@ public class Server implements IServer {
                             server.accept("Client connection", this);
 
                             CompletableFuture.runAsync(() -> {
-
                                 while (true) {
-                                    String msg = getMsg();
-                                    service.BroadCast(msg);
-                                }
-                            });
-
-                            CompletableFuture.runAsync(() -> {
-                                while (true) {
-                                    service.RecieveBroadcast(device);
+                                    service.ReceiveBroadcast(device);
                                 }
                             });
                         }
 
                         public void failed(Throwable exc, Object att) {
+                            exc.printStackTrace();
                             System.out.println("Failed to accept connection");
                         }
                     });
@@ -55,10 +50,5 @@ public class Server implements IServer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static String getMsg() {
-        //ToDo: get message from edit text
-        return new String();
     }
 }

@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class WiFiNetService implements IWiFiNetService {
 
-    Vector<Device> DeviceList = new Vector<Device>();
+    Vector<Device> DeviceList = new Vector<>();
 
     @Override
     public void Send(Device device, String Msg) {
@@ -15,12 +15,12 @@ public class WiFiNetService implements IWiFiNetService {
     }
 
     @Override
-    public void Recieve(Device device) {
+    public void Receive(Device device) {
         StartRead(device);
     }
 
-    public IMsgReceived msgReceivedHandler = new MsgReceivedHandler();
-    public IMsgReceived bcMsgReceivedHandler = new BCMsgReceivedHandler();
+    private IMsgReceived msgReceivedHandler = new MsgReceivedHandler();
+    //public IMsgReceived bcMsgReceivedHandler = new BCMsgReceivedHandler();
 
     @Override
     public void BroadCast(String Msg) {
@@ -52,7 +52,7 @@ public class WiFiNetService implements IWiFiNetService {
     @Override
     public void StartRead(final Device device) {
         final ByteBuffer buf = ByteBuffer.allocate(2048);
-        final String[] Msg = {new String()};
+        //final String[] Msg = {new String()};
         device.channel.read(buf, device.channel,
                 new CompletionHandler<Integer, AsynchronousSocketChannel>() {
                     @Override
@@ -72,9 +72,9 @@ public class WiFiNetService implements IWiFiNetService {
     }
 
     @Override
-    public void RecieveBroadcast(final Device device) {
+    public void ReceiveBroadcast(final Device device) {
         final ByteBuffer buf = ByteBuffer.allocate(2048);
-        final String[] Msg = {new String()};
+        //final String[] Msg = {new String()};
         device.channel.read(buf, device.channel,
                 new CompletionHandler<Integer, AsynchronousSocketChannel>() {
                     @Override
@@ -96,14 +96,6 @@ public class WiFiNetService implements IWiFiNetService {
         @Override
         public void MsgReceived(Device device,String msg) {
             System.out.println(msg);
-        }
-
-    }
-
-    public class BCMsgReceivedHandler implements IMsgReceived {
-        @Override
-        public void MsgReceived(Device device,String msg) {
-
         }
 
     }

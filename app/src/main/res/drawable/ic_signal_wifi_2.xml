@@ -7,12 +7,12 @@
 
     <path
         android:fillColor="#4491ff"
-        android:pathData="M0,200
-        A100,100 0 1,1 400,200
-        A100,100 0 1,1 0,200 Z" />
+        android:pathData="M50,200
+        A100,100 0 1,1 450,200
+        A100,100 0 1,1 50,200 Z" />
     <group
         android:translateY="300.000000"
-        android:translateX="80.000000"
+        android:translateX="130.000000"
         android:scaleX="0.100000"
         android:scaleY="-0.100000">
        <path

@@ -1,11 +1,10 @@
 package wifidirect.wifidirect;
 
 public interface IWiFiNetService {
-    public void Send(Device device, String Msg);
-    public void Recieve(Device device);
-    public void BroadCast(String Msg);
-    public void StartWrite(Device device, String Msg);
-    public void StartRead(Device device);
-    public void RecieveBroadcast(Device device);
-
+    void Send(Device device, String Msg);
+    void Receive(Device device);
+    void BroadCast(String Msg);
+    void StartWrite(Device device, String Msg);
+    void StartRead(Device device);
+    void ReceiveBroadcast(Device device);
 }

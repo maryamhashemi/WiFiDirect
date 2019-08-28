@@ -3,7 +3,6 @@ package wifidirect.wifidirect;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +21,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        ImageView imageView = (ImageView) findViewById(R.id.WiFiImage);
+        ImageView imageView = findViewById(R.id.WiFiImage);
         imageView.setBackgroundResource(R.drawable.animated_wifi);
         WiFiAnimation = (AnimationDrawable) imageView.getBackground();
 
@@ -32,6 +31,10 @@ public class StartActivity extends AppCompatActivity {
     private void start(){
         btnTurnOn = findViewById(R.id.TurnOn);
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        Intent intent = new Intent(this, MainActivity.class);
+        if (wifiManager.isWifiEnabled()) {
+            startActivity(intent);
+        }
     }
 
 
