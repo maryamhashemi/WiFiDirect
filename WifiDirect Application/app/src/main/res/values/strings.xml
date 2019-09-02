@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">WiFi Direct</string>
+    <string name="message_hint">Message ...</string>
+    <string name="send_btn_text">Send</string>
+    <string name="connection_status_text">Connection status</string>
+    <string name="private_mode">Private mode</string>
+    <string name="wifi_on_btn_text">Wifi On</string>
+    <string name="discover_btn_text">Discover</string>
+    <string name="message_text">Message</string>
+    <string name="group_mode">Group mode</string>
+    <string name="wifi_on_text">on</string>
+    <string name="wifi_off_text">off</string>
+    <string name="Host">Host</string>
+    <string name="client">Client</string>
+</resources>

@@ -16,34 +16,30 @@ public class MainClient {
             int port = 1234;
             String hostname = "127.0.0.1";
             AsynchronousSocketChannel client = AsynchronousSocketChannel.open();
+
+            var connectionHandler = new CompletionHandler<Void, AsynchronousSocketChannel>() {
+                @Override
+                public void completed(Void result, AsynchronousSocketChannel channel) {
+                    System.out.println("connected to server.");
+                }
+
+                @Override
+                public void failed(Throwable exc, AsynchronousSocketChannel channel) {
+                    System.out.println("fail to connect to server");
+                }
+            };
+
             client.connect(new InetSocketAddress(hostname, port), client,
-                    new CompletionHandler<Void, AsynchronousSocketChannel>() {
-                        @Override
-                        public void completed(Void result, AsynchronousSocketChannel channel) {
-                            System.out.println("connected to server.");
+                   connectionHandler);
 
-                            Device device = new Device(channel, "client");
-                            CompletableFuture.runAsync(() -> {
-                                while (true) {
-                                    String msg = getMsg();
-                                    service.Send(device, msg);
-                                }
-                            });
+            Thread.sleep(1000);
+            Device device = new Device(client, "client");
+            service.Receive(device);
 
-                            CompletableFuture.runAsync(() -> {
-                                while (true) {
-                                    service.Receive(device);
-                                }
-                            });
-
-                        }
-
-                        @Override
-                        public void failed(Throwable exc, AsynchronousSocketChannel channel) {
-                            System.out.println("fail to connect to server");
-                        }
-                    });
-            Thread.currentThread().join();
+            while (true) {
+                String msg = getMsg();
+                service.Send(device, msg);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,4 +58,6 @@ public class MainClient {
         }
         return message;
     }
+
+
 }

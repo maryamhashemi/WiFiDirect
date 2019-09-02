@@ -2,65 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d5636b9-4dca-4317-ac84-857b28b96347" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AsyncSocket/ClientForTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AsyncSocket/ServerForTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AsyncSocket/WiFiNetServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/ic_launcher-web.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/device.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/LocationPermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PBroadcastReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AsyncSocket/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AsyncSocket/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AsyncSocket/IMsgReceived.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AsyncSocket/IMsgReceived.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AsyncSocket/IWiFiNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AsyncSocket/IWiFiNetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AsyncSocket/MainClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AsyncSocket/MainClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AsyncSocket/MainServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AsyncSocket/MainServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AsyncSocket/WiFiNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AsyncSocket/WiFiNetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleNetwork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/IClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/IClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/IClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/IClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/ISendRecieve.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/IServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/IServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/SendRecieve.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleNetwork/src/simpleNetwork/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IMsgReceived.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IMsgReceived.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IWiFiNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IWiFiNetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/IClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IMsgReceived.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/IMsgReceived.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/IServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IWiFiNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/IWiFiNetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/StartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/StartActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WiFiNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WiFiNetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WifiDirectBroadcastReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WifiDirectBroadcastReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_signal_wifi_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_signal_wifi_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_signal_wifi_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_signal_wifi_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_signal_wifi_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_signal_wifi_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_signal_wifi_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/drawable/ic_signal_wifi_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WiFiNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/WiFiNetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WifiDirectBroadcastReceiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/login_bg.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,10 +37,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/WiFiNetService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2108">
-              <caret line="134" column="40" selection-start-line="134" selection-start-column="40" selection-end-line="134" selection-end-column="40" />
+            <state relative-caret-position="969">
+              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#376#377#0" expanded="true" />
+                <element signature="e#415#416#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="18" column="63" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="63" />
+            <state relative-caret-position="544">
+              <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,19 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/production/AsyncSocket/AsyncSocket/MainServer.class">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-84">
+              <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -197,10 +151,10 @@
         <option value="$PROJECT_DIR$/src/AsyncSocket/EchoServer.java" />
         <option value="$PROJECT_DIR$/src/AsyncSocket/ServerForTest.java" />
         <option value="$PROJECT_DIR$/src/AsyncSocket/IWiFiNetService.java" />
-        <option value="$PROJECT_DIR$/src/AsyncSocket/MainClient.java" />
         <option value="$PROJECT_DIR$/src/AsyncSocket/WiFiNetService.java" />
         <option value="$PROJECT_DIR$/src/AsyncSocket/WiFiNetServiceTest.java" />
         <option value="$PROJECT_DIR$/src/AsyncSocket/MainServer.java" />
+        <option value="$PROJECT_DIR$/src/AsyncSocket/MainClient.java" />
       </list>
     </option>
   </component>
@@ -211,9 +165,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="85" />
-    <option name="y" value="25" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-30" />
+    <option name="y" value="20" />
     <option name="width" value="1750" />
     <option name="height" value="980" />
   </component>
@@ -223,7 +177,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -246,7 +200,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,7 +243,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WiFiNetServiceTest.test1">
+  <component name="RunManager" selected="Application.MainClient">
     <configuration name="EchoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AsyncSocket.EchoClient" />
       <module name="AsyncSocket" />
@@ -303,8 +257,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EchoServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AsyncSocket.EchoServer" />
+    <configuration name="MainClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AsyncSocket.MainClient" />
       <module name="AsyncSocket" />
       <extension name="coverage">
         <pattern>
@@ -316,8 +270,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AsyncSocket.MainClient" />
+    <configuration name="MainServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AsyncSocket.MainServer" />
       <module name="AsyncSocket" />
       <extension name="coverage">
         <pattern>
@@ -360,11 +314,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainClient" />
+        <item itemvalue="Application.MainServer" />
         <item itemvalue="JUnit.WiFiNetServiceTest.test1" />
         <item itemvalue="Application.ServerForTest" />
-        <item itemvalue="Application.MainClient" />
         <item itemvalue="Application.EchoClient" />
-        <item itemvalue="Application.EchoServer" />
       </list>
     </recent_temporary>
   </component>
@@ -399,7 +353,9 @@
       <workItem from="1566546231308" duration="9938000" />
       <workItem from="1566584193393" duration="1342000" />
       <workItem from="1566810874021" duration="2341000" />
-      <workItem from="1566982583639" duration="593000" />
+      <workItem from="1566982583639" duration="5872000" />
+      <workItem from="1567314342373" duration="613000" />
+      <workItem from="1567406083206" duration="666000" />
     </task>
     <servers />
   </component>
@@ -436,7 +392,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128017000" />
+    <option name="totallyTimeSpent" value="134575000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -448,10 +404,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.2624161" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.26979867" />
       <window_info id="Structure" order="1" sideWeight="0.501002" side_tool="true" weight="0.17120343" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -460,8 +416,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49426934" visible="true" weight="0.24645892" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.3201133" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49426934" weight="0.24645892" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.3186969" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -469,7 +425,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32839838" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5057307" side_tool="true" weight="0.3270525" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5057307" side_tool="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -482,7 +438,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.2590604" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.2624161" />
       <window_info id="Structure" order="1" sideWeight="0.501002" side_tool="true" weight="0.17120343" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -492,7 +448,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49426934" visible="true" weight="0.24645892" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.3201133" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.3186969" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -500,7 +456,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32839838" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5057307" side_tool="true" weight="0.3270525" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5057307" side_tool="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -579,12 +535,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AsyncSocket/EchoServer.java" />
     <entry file="file://$PROJECT_DIR$/src/AsyncSocket/EchoClient.java" />
+    <entry file="file://$PROJECT_DIR$/out/production/AsyncSocket/AsyncSocket/MainServer.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AsyncSocket/WiFiNetService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2108">
-          <caret line="134" column="40" selection-start-line="134" selection-start-column="40" selection-end-line="134" selection-end-column="40" />
+        <state relative-caret-position="969">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -616,26 +577,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/AsyncSocket/AsyncSocket/MainServer.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainServer.java">
+    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="544">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
+    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="18" column="63" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-84">
+          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
         </state>
       </provider>
     </entry>
