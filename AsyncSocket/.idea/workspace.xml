@@ -2,25 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d5636b9-4dca-4317-ac84-857b28b96347" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/LocationPermission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PBroadcastReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AsyncSocket/MainClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AsyncSocket/MainClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/IClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IMsgReceived.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/IMsgReceived.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/IServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/IWiFiNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/IWiFiNetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WiFiNetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/Chat/WiFiNetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/java/wifidirect/wifidirect/WifiDirectBroadcastReceiver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/drawable/login_bg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/Device.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/IClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/IMsgReceived.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/IServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/IWiFiNetService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/WiFiNetService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/ChatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/ChatActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PBroadcastReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PBroadcastReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/res/layout/activity_chat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/res/layout/activity_chat.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +60,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="442">
               <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -96,8 +93,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-84">
-              <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+            <state relative-caret-position="93">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,7 +165,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-30" />
     <option name="y" value="20" />
     <option name="width" value="1750" />
@@ -177,7 +177,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,6 +199,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -243,7 +243,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainClient">
+  <component name="RunManager" selected="Application.MainServer">
     <configuration name="EchoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AsyncSocket.EchoClient" />
       <module name="AsyncSocket" />
@@ -314,8 +314,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainClient" />
         <item itemvalue="Application.MainServer" />
+        <item itemvalue="Application.MainClient" />
         <item itemvalue="JUnit.WiFiNetServiceTest.test1" />
         <item itemvalue="Application.ServerForTest" />
         <item itemvalue="Application.EchoClient" />
@@ -355,7 +355,8 @@
       <workItem from="1566810874021" duration="2341000" />
       <workItem from="1566982583639" duration="5872000" />
       <workItem from="1567314342373" duration="613000" />
-      <workItem from="1567406083206" duration="666000" />
+      <workItem from="1567406083206" duration="1338000" />
+      <workItem from="1567496530261" duration="1257000" />
     </task>
     <servers />
   </component>
@@ -392,7 +393,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134575000" />
+    <option name="totallyTimeSpent" value="136504000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -404,10 +405,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.26979867" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.2738255" />
       <window_info id="Structure" order="1" sideWeight="0.501002" side_tool="true" weight="0.17120343" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -560,6 +561,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AsyncSocket/IWiFiNetService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -577,20 +588,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
+    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        <state relative-caret-position="93">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
         </state>
       </provider>
     </entry>

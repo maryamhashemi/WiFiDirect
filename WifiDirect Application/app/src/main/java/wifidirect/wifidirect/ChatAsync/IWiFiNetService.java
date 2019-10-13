@@ -1,6 +1,4 @@
-package wifidirect.wifidirect.Chat;
-
-import wifidirect.wifidirect.Chat.Device;
+package wifidirect.wifidirect.ChatAsync;
 
 public interface IWiFiNetService {
     void Send(Device device, String Msg);

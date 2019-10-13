@@ -2,6 +2,7 @@ package wifidirect.wifidirect.WiFiP2P;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.net.wifi.p2p.*;
@@ -9,14 +10,15 @@ import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceInfo;
 import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceRequest;
 import android.os.Build;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import wifidirect.wifidirect.Chat.Client;
-import wifidirect.wifidirect.Chat.Server;
+import wifidirect.wifidirect.ChatActivity;
+import wifidirect.wifidirect.ChatAsync.Client;
+import wifidirect.wifidirect.ChatAsync.Server;
 import wifidirect.wifidirect.MainActivity;
+import wifidirect.wifidirect.StartActivity;
 
 import static android.os.Looper.getMainLooper;
 
@@ -167,14 +169,12 @@ public class WiFiP2PManager {
             if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner) {
                 //ToDo: Running Server
                 Log.d(TAG, "This Device is group owner.");
-                Server server = new Server();
-                server.Start();
+                mainActivity.StartChatActivity(wifiP2pInfo.isGroupOwner,wifiP2pInfo.groupOwnerAddress.getHostAddress());
 
-            } else if (wifiP2pInfo.groupFormed) {
+            } else if (wifiP2pInfo.groupFormed && !wifiP2pInfo.isGroupOwner) {
                 //ToDo: Running Client
                 Log.d(TAG, "This Device is client.");
-                Client client =  new Client();
-                //client.Start();
+                mainActivity.StartChatActivity(wifiP2pInfo.isGroupOwner,wifiP2pInfo.groupOwnerAddress.getHostAddress());
             }
         }
     };

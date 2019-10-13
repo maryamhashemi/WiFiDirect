@@ -21,7 +21,7 @@ public class WiFiP2PBroadcastReceiver extends BroadcastReceiver {
     private WifiP2pManager manager;
     private WifiP2pManager.Channel channel;
     private MainActivity mainActivity;
-    private  WifiP2pDevice myDevice;
+    private WifiP2pDevice myDevice;
 
     public WiFiP2PBroadcastReceiver(WifiP2pManager manager,
                                        WifiP2pManager.Channel channel,

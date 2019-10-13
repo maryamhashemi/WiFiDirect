@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isGroup = false;
     public WiFiP2PManager manager;
     List<WifiP2pDevice> peers = new ArrayList<>();
-    static final int MESSAGE_READ = 1;
+    public static final int MESSAGE_READ = 1;
     LocationPermission locationPermission;
 
     @Override
@@ -171,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * TODO: JavaDoc
+     *
      * @param view
      */
     public void TurnOnWiFi(View view) {
@@ -182,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * TODO: JavaDoc
+     *
      * @param view
      */
     public void Discover(View view) {
@@ -201,13 +203,13 @@ public class MainActivity extends AppCompatActivity {
     /**
      * TODO : JavaDoc
      */
-    private void HideDiscoveryProgressBar()
-    {
+    private void HideDiscoveryProgressBar() {
         discoveryProgressbar.setVisibility(View.GONE);
     }
 
     /**
      * TODO: JavaDoc
+     *
      * @param peerList
      */
     public void UpdatePeerList(WifiP2pDeviceList peerList) {
@@ -241,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * TODO : JavaDoc
      */
-    static Handler handler = new Handler(new Handler.Callback() {
+    public static Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
@@ -249,9 +251,24 @@ public class MainActivity extends AppCompatActivity {
                     byte[] readBuff = (byte[]) msg.obj;
                     String tempMSg = new String(readBuff, 0, msg.arg1);
                     readMsgBox.setText(tempMSg);
+                    Log.d(TAG, tempMSg);
                     break;
             }
             return true;
         }
     });
+
+    public void StartChatActivity(boolean isGo, String ipAddress) {
+        Intent intent = new Intent(this, ChatActivity.class);
+        if (isGo) {
+            Toast.makeText(getApplicationContext(), "isGo : true", Toast.LENGTH_SHORT).show();
+            intent.putExtra("isGo", "true");
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "isGo : false", Toast.LENGTH_SHORT).show();
+            intent.putExtra("isGo", "false");
+        }
+        intent.putExtra("ipAddress", ipAddress);
+        startActivity(intent);
+    }
 }

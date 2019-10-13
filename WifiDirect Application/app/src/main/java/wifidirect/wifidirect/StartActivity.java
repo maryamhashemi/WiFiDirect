@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 public class StartActivity extends AppCompatActivity {
 
+    private static final String TAG = "MyApp: StartActivity: ";
     AnimationDrawable WiFiAnimation;
     Button btnTurnOn;
     WifiManager wifiManager;
@@ -28,6 +29,9 @@ public class StartActivity extends AppCompatActivity {
         start();
     }
 
+    /**
+     * ToDo
+     */
     private void start(){
         btnTurnOn = findViewById(R.id.TurnOn);
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
@@ -38,16 +42,22 @@ public class StartActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * ToDo
+     * @param view
+     */
     public void TurnOn(View view){
         Intent intent = new Intent(this, MainActivity.class);
-        if (wifiManager.isWifiEnabled()) {
-            startActivity(intent);
-        } else {
+        if (!wifiManager.isWifiEnabled()) {
             wifiManager.setWifiEnabled(true);
             startActivity(intent);
         }
     }
 
+    /**
+     * ToDo
+     * @param hasFocus
+     */
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);

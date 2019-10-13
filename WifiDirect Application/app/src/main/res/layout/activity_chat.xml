@@ -37,6 +37,7 @@
             android:paddingBottom="10dp" />
 
         <ImageButton
+            android:id="@+id/btnSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/writeMsg"
@@ -44,6 +45,7 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="6dp"
             android:background="@drawable/ic_send_24dp"
-            android:padding="15dp" />
+            android:padding="15dp"
+            android:onClick="Send"/>
     </RelativeLayout>
 </LinearLayout>
