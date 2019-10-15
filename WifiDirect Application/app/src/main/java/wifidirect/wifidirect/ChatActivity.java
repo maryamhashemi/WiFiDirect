@@ -16,7 +16,7 @@ import wifidirect.wifidirect.ChatMultiThread.Server;
 import wifidirect.wifidirect.Message.MessageAdapter;
 
 public class ChatActivity extends AppCompatActivity {
-    public static final String TAG = "MyApp: ChatActivity: ";
+    public static final String TAG = "MyApp: WiFiDirect: ChatActivity";
     public static final int MESSAGE_READ = 1;
 
     Server server = null;
@@ -36,7 +36,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO : JavaDoc
+     * Initialize view objects of activity.
      */
     public void Initialize() {
         writeMsg = findViewById(R.id.writeMsg);
@@ -48,7 +48,8 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO : JavaDoc
+     * Check weather this device palys server role or client role.
+     * Then setup requirements.
      */
     public void StartServerOrClient() {
         // ToDo: with just one line, change between Multithread and Async
@@ -77,8 +78,8 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO : JavaDoc
-     * @param view
+     * This Method is called when send button clicks.
+     * @param view refers to view that was clicked.
      */
     public void Send(View view) {
         String msg = writeMsg.getText().toString();
@@ -91,7 +92,8 @@ public class ChatActivity extends AppCompatActivity {
             client.Send(msg);
         }
 
-        //ToDo: put this piece of code in seperate function
+        //ToDo: put this piece of code in separate function
+        // is it necessary to separate?
         wifidirect.wifidirect.Message.Message message = new wifidirect.wifidirect.Message.Message(msg, true);
         runOnUiThread(new Runnable() {
             @Override
@@ -103,7 +105,10 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO : JavaDoc
+     * A Handler allows you to send and process Message and Runnable objects
+     * associated with a thread's MessageQueue.
+     * Each Handler instance is associated with a single thread and that thread's message queue.
+     *
      */
     static public Handler handler = new Handler(new Handler.Callback() {
         @Override

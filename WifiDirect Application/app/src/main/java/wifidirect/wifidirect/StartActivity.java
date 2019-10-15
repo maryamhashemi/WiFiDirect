@@ -30,7 +30,8 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-     * ToDo
+     * Initialize view objects and check weather wifi is enabled or not.
+     * if wifi is enabled, the main activity starts.
      */
     private void start(){
         btnTurnOn = findViewById(R.id.TurnOn);
@@ -43,8 +44,8 @@ public class StartActivity extends AppCompatActivity {
 
 
     /**
-     * ToDo
-     * @param view
+     * Use this method when btnTurnOn clicks.
+     * @param view refers to view that was clicked.
      */
     public void TurnOn(View view){
         Intent intent = new Intent(this, MainActivity.class);
@@ -55,8 +56,8 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-     * ToDo
-     * @param hasFocus
+     * Called when the current Window of the activity gains or loses focus.
+     * @param hasFocus Whether the window of this activity has focus.
      */
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
