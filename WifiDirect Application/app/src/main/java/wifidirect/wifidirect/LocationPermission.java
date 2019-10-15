@@ -34,11 +34,13 @@ public class LocationPermission extends AppCompatActivity {
     }
 
     /**
-     * //ToDo
+     * Callback for the result from requesting permissions.
+     * This method is invoked for every call on requestPermissions(android.app.Activity, String[], int).
      *
-     * @param requestCode
-     * @param permissions
-     * @param grantResults
+     * @param requestCode The request code passed in requestPermissions(android.app.Activity, String[], int)
+     * @param permissions The requested permissions. Never null.
+     * @param grantResults The grant results for the corresponding permissions which is
+     *                     either PERMISSION_GRANTED or PERMISSION_DENIED. Never null.
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {

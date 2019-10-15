@@ -21,7 +21,6 @@ public class WiFiP2PBroadcastReceiver extends BroadcastReceiver implements IWiFi
     private WifiP2pManager manager;
     private WifiP2pManager.Channel channel;
     private MainActivity mainActivity;
-    private WifiP2pDevice myDevice;
 
     public WiFiP2PBroadcastReceiver(WifiP2pManager manager,
                                     WifiP2pManager.Channel channel,
@@ -49,7 +48,7 @@ public class WiFiP2PBroadcastReceiver extends BroadcastReceiver implements IWiFi
         if (WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION.equals(action)) {
             CheckWifiEnable(context, intent);
         } else if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
-            CheckPeerlistChange();
+            CheckPeerListChange();
         } else if (WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals(action)) {
             CheckWiFiConnectivity(intent);
         } else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
@@ -110,7 +109,7 @@ public class WiFiP2PBroadcastReceiver extends BroadcastReceiver implements IWiFi
      * callback on PeerListListener.onPeersAvailable()
      */
     @Override
-    public void CheckPeerlistChange() {
+    public void CheckPeerListChange() {
         if (manager != null) {
             manager.requestPeers(channel, mainActivity.manager.peerListListener);
         }
@@ -145,7 +144,7 @@ public class WiFiP2PBroadcastReceiver extends BroadcastReceiver implements IWiFi
     @Override
     public void CheckDeviceDetail(Intent intent) {
 
-        myDevice = intent.getParcelableExtra(WifiP2pManager.EXTRA_WIFI_P2P_DEVICE);
+        WifiP2pDevice myDevice = intent.getParcelableExtra(WifiP2pManager.EXTRA_WIFI_P2P_DEVICE);
         mainActivity.MyDeviceName.setText(myDevice.deviceName);
         mainActivity.MyDeviceStatus.setText(getP2pDeviceStatus(myDevice.status));
         mainActivity.MyIpAddress.setText(myDevice.deviceAddress);

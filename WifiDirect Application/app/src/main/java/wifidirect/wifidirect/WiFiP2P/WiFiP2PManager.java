@@ -164,12 +164,12 @@ public class WiFiP2PManager implements IWiFiP2PManager {
         @Override
         public void onConnectionInfoAvailable(WifiP2pInfo wifiP2pInfo) {
             if (wifiP2pInfo.groupFormed && wifiP2pInfo.isGroupOwner) {
-                //ToDo: Running Server
+                // Running Server
                 Log.d(TAG, "This Device is group owner.");
                 mainActivity.StartChatActivity(wifiP2pInfo.isGroupOwner, wifiP2pInfo.groupOwnerAddress.getHostAddress());
 
             } else if (wifiP2pInfo.groupFormed && !wifiP2pInfo.isGroupOwner) {
-                //ToDo: Running Client
+                // Running Client
                 Log.d(TAG, "This Device is client.");
                 mainActivity.StartChatActivity(wifiP2pInfo.isGroupOwner, wifiP2pInfo.groupOwnerAddress.getHostAddress());
             }
@@ -283,7 +283,7 @@ public class WiFiP2PManager implements IWiFiP2PManager {
     }
 
     /**
-     * toDo
+     * Finally, make the call to discoverServices().
      */
     @Override
     public void discoverService() {

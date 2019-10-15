@@ -6,7 +6,7 @@ import android.content.Intent;
 public interface IWiFiP2PBroadcastReceiver {
     void CheckWifiEnable(Context context, Intent intent);
 
-    void CheckPeerlistChange();
+    void CheckPeerListChange();
 
     void CheckWiFiConnectivity(Intent intent);
 

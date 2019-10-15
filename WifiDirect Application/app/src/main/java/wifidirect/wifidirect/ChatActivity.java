@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import wifidirect.wifidirect.ChatMultiThread.Client;
 import wifidirect.wifidirect.ChatMultiThread.Server;
+import wifidirect.wifidirect.Message.MessageAdapter;
 
 public class ChatActivity extends AppCompatActivity {
     public static final String TAG = "MyApp: ChatActivity: ";
@@ -91,7 +92,7 @@ public class ChatActivity extends AppCompatActivity {
         }
 
         //ToDo: put this piece of code in seperate function
-        wifidirect.wifidirect.Message message = new wifidirect.wifidirect.Message(msg, true);
+        wifidirect.wifidirect.Message.Message message = new wifidirect.wifidirect.Message.Message(msg, true);
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -112,7 +113,7 @@ public class ChatActivity extends AppCompatActivity {
                     byte[] readBuff = (byte[]) msg.obj;
                     String tempMSg = new String(readBuff, 0, msg.arg1);
                     Log.d(TAG, tempMSg);
-                    wifidirect.wifidirect.Message message = new wifidirect.wifidirect.Message(tempMSg, false);
+                    wifidirect.wifidirect.Message.Message message = new wifidirect.wifidirect.Message.Message(tempMSg, false);
 
                     messageAdapter.add(message);
                     messagesView.setSelection(messagesView.getCount() - 1);
