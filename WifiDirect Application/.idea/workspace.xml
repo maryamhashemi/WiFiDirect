@@ -36,8 +36,8 @@
       <file leaf-file-name="ChatActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="81" column="51" lean-forward="true" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="51" />
+            <state relative-caret-position="1496">
+              <caret line="81" column="51" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -45,8 +45,8 @@
       <file leaf-file-name="StartActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/StartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-285">
-              <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+            <state relative-caret-position="132">
+              <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -54,8 +54,12 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4857">
-              <caret line="31" column="62" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="62" />
+            <state relative-caret-position="269">
+              <caret line="252" column="30" selection-start-line="252" selection-start-column="30" selection-end-line="252" selection-end-column="30" />
+              <folding>
+                <element signature="e#5681#5703#0" expanded="true" />
+                <element signature="e#5748#5769#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2351,6 +2355,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/Message/Message.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/StartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2365,6 +2370,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2387,9 +2394,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2578,6 +2583,31 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1782">
+          <caret line="81" column="51" lean-forward="true" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/StartActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="31" column="62" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="62" />
+          <folding>
+            <element signature="e#5681#5703#0" expanded="true" />
+            <element signature="e#5748#5769#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PBroadcastReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -2806,9 +2836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2837,9 +2864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2847,9 +2871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2860,24 +2881,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/StartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="81" column="51" lean-forward="true" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="51" />
+        <state relative-caret-position="132">
+          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/StartActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-285">
-          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+        <state relative-caret-position="1496">
+          <caret line="81" column="51" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4857">
-          <caret line="31" column="62" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="62" />
+        <state relative-caret-position="269">
+          <caret line="252" column="30" selection-start-line="252" selection-start-column="30" selection-end-line="252" selection-end-column="30" />
+          <folding>
+            <element signature="e#5681#5703#0" expanded="true" />
+            <element signature="e#5748#5769#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

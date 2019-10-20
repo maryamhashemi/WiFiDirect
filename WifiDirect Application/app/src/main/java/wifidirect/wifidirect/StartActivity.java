@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 public class StartActivity extends AppCompatActivity {
 
-    private static final String TAG = "MyApp: StartActivity: ";
+    private static final String TAG = "MyApp: WiFiDirect: StartActivity";
     AnimationDrawable WiFiAnimation;
     Button btnTurnOn;
     WifiManager wifiManager;

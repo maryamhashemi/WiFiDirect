@@ -29,7 +29,7 @@ import wifidirect.wifidirect.WiFiP2P.WiFiP2PManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MyApp: MainActivity: ";
+    private static final String TAG = "MyApp: WiFiDirect: MainActivity";
 
     public Button btnonoff;
     Button btnDiscover;
@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO: JavaDoc
+     * Use this callback to handle Back button events.
+     * If you press back button, you will redirect to home launcher.
      */
     @Override
     public void onBackPressed() {
@@ -72,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Register the Broadcast Receiver
+     * When the activity enters the Resumed state, it comes to the foreground,
+     * and then the system invokes the onResume() callback.
+     * In this callback, we Register the Broadcast Receiver.
      */
     @Override
     protected void onResume() {
@@ -81,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * UnRegister the Broadcast Receiver
+     * The system calls this method as the first indication that the user is leaving activity.
+     * It indicates that the activity is no longer in the foreground.
+     * In this callback, we unRegister the Broadcast Receiver.
      */
     @Override
     protected void onPause() {
@@ -90,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * initialize the necessary variables
+     * Initialize the necessary variables.
      */
     private void Initialize() {
         btnonoff = findViewById(R.id.onoff);
@@ -116,12 +121,15 @@ public class MainActivity extends AppCompatActivity {
         locationPermission.checkLocationPermission();
     }
 
+    /**
+     * Use this method to handle the listener of view item in activity.
+     */
     private void Listener() {
         /**
          * Change the mode of application
          * there is two mode:
-         * 1. Private mode: Send and recieve messages between two people
-         * 2. Group mode: Send and recieve messages between more than two peoples
+         * 1. Private mode: Send and receive messages between two people.
+         * 2. Group mode: Send and receive messages between more than two people.
          */
         btnPrivateGroup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -129,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 if (isChecked) {
                     Log.d(TAG, "This device is in group mode");
                     isGroup = true;
+                    //TODO: uncomment below line.
                     //manager.CreateGroup();
                 } else {
                     Log.d(TAG, "This device is in private mode");
@@ -138,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /**
-         * When tap a device which is listed in listview, connect to it
+         * When you tap a device which is listed in listview, you will connect to it.
          */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -150,19 +159,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Send Message
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String msg = (String) btnSend.getText();
-                //ToDo: Send message
-            }
-        });
-
+        /**
+         * When you swip refresh layout, discovery progressbar will be shown and start discovery.
+         */
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 ShowDiscoveryProgressBar();
+                // TODO: replace with discover service.
                 manager.Discover();
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -170,9 +174,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO: JavaDoc
-     *
-     * @param view
+     * This Method is called when btnonoff clicks.
+     * If wifi is on, we change the text of button to on,
+     * otherwise change it to off.
+     * @param view refers to view that was clicked.
      */
     public void TurnOnWiFi(View view) {
         if (manager.TurnOnWiFi())
@@ -182,9 +187,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO: JavaDoc
+     * This Method is called when btnDiscover clicks.
+     * By clicking it, discovery progressbar will be shown and start discovery.
      *
-     * @param view
+     * @param view refers to view that was clicked.
      */
     public void Discover(View view) {
         ShowDiscoveryProgressBar();
@@ -192,7 +198,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO: JavaDoc
+     * Use this method to create an indeterminate horizontal progressbar
+     * for discovery action and show it in this activity.
      */
     private void ShowDiscoveryProgressBar() {
         discoveryProgressbar.setVisibility(View.VISIBLE);
@@ -201,16 +208,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO : JavaDoc
+     * Use this method to hide an indeterminate horizontal progressbar
+     * for discovery action.
      */
     private void HideDiscoveryProgressBar() {
         discoveryProgressbar.setVisibility(View.GONE);
     }
 
     /**
-     * TODO: JavaDoc
+     * Use this method to update the peerlist after discovering.
      *
-     * @param peerList
+     * @param peerList is list to maintain the nearby devices or peers.
      */
     public void UpdatePeerList(WifiP2pDeviceList peerList) {
         if (!peerList.getDeviceList().equals(peers)) {
@@ -241,31 +249,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO : JavaDoc
+     * When two devices conncet to each other, this method will be called.
+     * by calling it, we pass 
+     * @param isGo
+     * @param ipAddress
      */
-    public static Handler handler = new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message msg) {
-            switch (msg.what) {
-                case MESSAGE_READ:
-                    byte[] readBuff = (byte[]) msg.obj;
-                    String tempMSg = new String(readBuff, 0, msg.arg1);
-                    readMsgBox.setText(tempMSg);
-                    Log.d(TAG, tempMSg);
-                    break;
-            }
-            return true;
-        }
-    });
 
     public void StartChatActivity(boolean isGo, String ipAddress) {
         Intent intent = new Intent(this, ChatActivity.class);
         if (isGo) {
-            Toast.makeText(getApplicationContext(), "isGo : true", Toast.LENGTH_SHORT).show();
             intent.putExtra("isGo", "true");
         }
         else {
-            Toast.makeText(getApplicationContext(), "isGo : false", Toast.LENGTH_SHORT).show();
             intent.putExtra("isGo", "false");
         }
         intent.putExtra("ipAddress", ipAddress);
