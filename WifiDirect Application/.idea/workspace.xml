@@ -63,7 +63,7 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatAsync/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
+            <state relative-caret-position="616">
               <caret line="34" column="71" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="71" />
             </state>
           </provider>
@@ -72,7 +72,7 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatAsync/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
+            <state relative-caret-position="22">
               <caret line="19" column="68" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
             </state>
           </provider>
@@ -2385,8 +2385,6 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2416,6 +2414,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2565,7 +2565,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32874617" />
@@ -2575,8 +2574,8 @@
       <window_info id="Build Variants" order="8" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32874617" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32874617" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Logcat" order="9" />
       <window_info id="Captures" order="6" weight="0.25" />
@@ -2588,8 +2587,8 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="8" side_tool="true" weight="0.32972974" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Code Iris" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -2937,14 +2936,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatAsync/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
+        <state relative-caret-position="616">
           <caret line="34" column="71" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/wifidirect/wifidirect/ChatAsync/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
+        <state relative-caret-position="22">
           <caret line="19" column="68" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
         </state>
       </provider>
