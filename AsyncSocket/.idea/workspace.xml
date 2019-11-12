@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d5636b9-4dca-4317-ac84-857b28b96347" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WifiDirect Application/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/Device.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/IClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/IMsgReceived.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/IServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/IWiFiNetService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/Chat/WiFiNetService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/ChatActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/ChatActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PBroadcastReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PBroadcastReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/java/wifidirect/wifidirect/WiFiP2P/WiFiP2PManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/res/layout/activity_chat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../WifiDirect Application/app/src/main/res/layout/activity_chat.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,57 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AsyncSocket/WiFiNetService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#376#377#0" expanded="true" />
-                <element signature="e#415#416#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AsyncSocket/WiFiNetServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="142">
               <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AsyncSocket/IWiFiNetService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AsyncSocket/ServerForTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,7 +31,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
+            <state relative-caret-position="-877">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -177,6 +115,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,7 +139,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -243,7 +181,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainServer">
+  <component name="RunManager" selected="Application.MainClient">
     <configuration name="EchoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AsyncSocket.EchoClient" />
       <module name="AsyncSocket" />
@@ -314,8 +252,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainServer" />
         <item itemvalue="Application.MainClient" />
+        <item itemvalue="Application.MainServer" />
         <item itemvalue="JUnit.WiFiNetServiceTest.test1" />
         <item itemvalue="Application.ServerForTest" />
         <item itemvalue="Application.EchoClient" />
@@ -357,6 +295,7 @@
       <workItem from="1567314342373" duration="613000" />
       <workItem from="1567406083206" duration="1338000" />
       <workItem from="1567496530261" duration="1257000" />
+      <workItem from="1572945486342" duration="1366000" />
     </task>
     <servers />
   </component>
@@ -393,7 +332,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136504000" />
+    <option name="totallyTimeSpent" value="137870000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -406,9 +345,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.2738255" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.498998" visible="true" weight="0.27785236" />
       <window_info id="Structure" order="1" sideWeight="0.501002" side_tool="true" weight="0.17120343" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -417,7 +355,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49426934" weight="0.24645892" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49426934" weight="0.26912183" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.3186969" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -539,14 +477,12 @@
     <entry file="file://$PROJECT_DIR$/out/production/AsyncSocket/AsyncSocket/MainServer.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/WiFiNetService.java">
+    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/ServerForTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        <state relative-caret-position="476">
+          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -561,12 +497,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
+    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/WiFiNetService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        <state relative-caret-position="621">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#415#416#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -578,10 +516,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/ServerForTest.java">
+    <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+        <state relative-caret-position="142">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -590,7 +528,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AsyncSocket/MainServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
+        <state relative-caret-position="-877">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
